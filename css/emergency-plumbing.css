@@ -1,0 +1,8 @@
+.service-hero--emergency::after {
+  background-image: url("../images/services/emergency-plumbing/hero.svg");
+}
+
+.page-emergency .highlight {
+  color: #0d2f57;
+  font-weight: 700;
+}

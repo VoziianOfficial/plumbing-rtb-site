@@ -1,0 +1,7 @@
+.service-hero--replacement::after {
+  background-image: url("../images/services/plumbing-replacement/hero.svg");
+}
+
+.page-replacement .related-card {
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
+}

@@ -1,0 +1,7 @@
+.service-hero--repairs::after {
+  background-image: url("../images/services/plumbing-repairs-maintenance/hero.svg");
+}
+
+.page-repairs .info-card {
+  background: linear-gradient(180deg, #ffffff, #f6faff);
+}

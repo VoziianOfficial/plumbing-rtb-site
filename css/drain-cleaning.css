@@ -1,0 +1,7 @@
+.service-hero--drain::after {
+  background-image: url("../images/services/drain-cleaning/hero.svg");
+}
+
+.page-drain .problem-card {
+  border-color: rgba(20, 87, 143, 0.18);
+}

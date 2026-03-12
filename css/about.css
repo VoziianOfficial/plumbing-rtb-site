@@ -1,0 +1,45 @@
+.about-hero {
+  background:
+    linear-gradient(145deg, rgba(13, 47, 87, 0.97), rgba(18, 76, 129, 0.9)),
+    url("../images/about/about-platform-support.svg") center / cover no-repeat;
+}
+
+.about-story {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.about-story img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 300px;
+}
+
+.about-checklist {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.about-checklist li {
+  color: #315170;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.about-checklist li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #ef7b2d;
+}
+
+@media (max-width: 960px) {
+  .about-story {
+    grid-template-columns: 1fr;
+  }
+}

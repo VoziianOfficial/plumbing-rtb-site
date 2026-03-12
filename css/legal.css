@@ -1,0 +1,31 @@
+.legal-hero {
+  background:
+    linear-gradient(145deg, rgba(13, 47, 87, 0.97), rgba(22, 79, 132, 0.9)),
+    url("../images/legal/legal-documents.svg") center / cover no-repeat;
+}
+
+.legal-content {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(13, 47, 87, 0.09);
+  box-shadow: 0 10px 24px rgba(10, 39, 74, 0.08);
+  padding: 1.5rem;
+}
+
+.legal-content h2 {
+  color: #0d2f57;
+  margin-top: 1.6rem;
+}
+
+.legal-content h3 {
+  color: #1a4877;
+}
+
+.legal-content p,
+.legal-content li {
+  color: #446385;
+}
+
+.legal-content ul {
+  padding-left: 1.2rem;
+}

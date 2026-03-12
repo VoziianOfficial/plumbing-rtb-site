@@ -1,0 +1,7 @@
+.service-hero--installation::after {
+  background-image: url("../images/services/plumbing-installation/hero.svg");
+}
+
+.page-installation .info-card h3 {
+  color: #194777;
+}

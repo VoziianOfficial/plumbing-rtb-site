@@ -1,0 +1,221 @@
+.home-hero::after {
+  background-image: url("../images/home/home-hero.jpg");
+}
+
+.home-hero .hero-form-wrap {
+  margin-top: 0.35rem;
+}
+
+.hero-feature-layout {
+  margin-bottom: 1.6rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 156px;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.hero-feature-carousel {
+  padding: 0.72rem 1.1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(19, 52, 90, 0.72),
+    rgba(10, 38, 70, 0.62)
+  );
+  box-shadow: 0 14px 28px rgba(6, 21, 41, 0.32);
+  backdrop-filter: blur(2px);
+  min-height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-feature-track {
+  min-height: 50px;
+}
+
+.hero-feature-copy {
+  min-height: 46px;
+  display: grid;
+  align-items: center;
+}
+
+.hero-feature-slide {
+  display: none;
+  animation: heroSlideIn 280ms ease;
+}
+
+.hero-feature-slide.is-active {
+  display: block;
+}
+
+.hero-feature-slide p {
+  margin: 0;
+  max-width: 320px;
+  font-size: 0.94rem;
+  line-height: 1.42;
+  color: #f3f7fc;
+  font-weight: 600;
+}
+
+.hero-feature-image {
+  margin: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 14px 28px rgba(6, 21, 41, 0.32);
+}
+
+.hero-feature-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.hero-feature-controls {
+  margin-top: 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.hero-feature-dots {
+  display: inline-flex;
+  gap: 0.38rem;
+}
+
+.hero-feature-dot {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.52rem;
+  height: 0.52rem;
+  aspect-ratio: 1 / 1;
+  min-width: 0.52rem;
+  min-height: 0.52rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition:
+    transform var(--ease),
+    background var(--ease),
+    border-color var(--ease);
+}
+
+.hero-feature-dot.is-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.12);
+}
+
+.hero-feature-arrows {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.hero-feature-arrow {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid rgba(239, 123, 45, 0.6);
+  background: rgba(239, 123, 45, 0.15);
+  color: #ffb57f;
+  font-size: 1.3rem;
+  line-height: 0;
+  cursor: pointer;
+  transition:
+    transform var(--ease),
+    background var(--ease),
+    color var(--ease);
+}
+
+.hero-feature-arrow:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+.why-list {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.why-list li {
+  background: #ffffff;
+  border: 1px solid rgba(13, 47, 87, 0.08);
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+  color: #315170;
+}
+
+.about-preview-box {
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
+  border: 1px solid rgba(13, 47, 87, 0.1);
+  border-radius: 16px;
+  padding: 1.4rem;
+  box-shadow: 0 10px 22px rgba(9, 38, 74, 0.08);
+}
+
+.project-image--bathroom-lower {
+  object-position: center 7%;
+}
+
+@keyframes heroSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-feature-layout {
+    grid-template-columns: 1fr;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-feature-image {
+    display: none;
+  }
+
+  .hero-feature-carousel {
+    min-height: auto;
+  }
+
+  .hero-feature-copy {
+    min-height: 34px;
+  }
+
+  .hero-feature-slide p {
+    max-width: 100%;
+    font-size: 0.84rem;
+  }
+
+  .home-hero .hero-actions {
+    width: 100%;
+  }
+
+  .home-hero .hero-actions .btn {
+    width: 100%;
+  }
+}

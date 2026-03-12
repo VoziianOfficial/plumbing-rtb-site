@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Contact Plumbing Match Hub | Request Plumbing Connection Support
+    </title>
+    <meta
+      name="description"
+      content="Contact Plumbing Match Hub to request local plumbing contractor connections and estimate routing support."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Plumbing Match Hub home"
+          ><span class="brand-mark">PM</span></a
+        >
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a data-nav-link href="index.html">Home</a></li>
+            <li><a data-nav-link href="index.html#services">Services</a></li>
+            <li><a data-nav-link href="about.html">About</a></li>
+            <li><a data-nav-link href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta">
+          <a class="phone-link" href="tel:+15552147832">(555) 214-7832</a>
+          <a class="btn btn-primary" href="tel:+15552147832">Call</a>
+          <a
+            class="mobile-call-icon"
+            href="tel:+15552147832"
+            aria-label="Call now"
+            >&#9742;</a
+          >
+          <button
+            class="mobile-toggle"
+            data-mobile-toggle
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Open menu"
+          >
+            <span class="bar"></span><span class="bar"></span
+            ><span class="bar"></span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="mobile-drawer"
+        id="mobileMenu"
+        data-mobile-drawer
+        aria-hidden="true"
+      >
+        <nav aria-label="Mobile navigation">
+          <ul>
+            <li><a data-mobile-close href="index.html">Home</a></li>
+            <li>
+              <a data-mobile-close href="index.html#services">Services</a>
+            </li>
+            <li><a data-mobile-close href="about.html">About</a></li>
+            <li><a data-mobile-close href="contact.html">Contact</a></li>
+          </ul>
+          <div class="drawer-cta">
+            <a class="btn btn-primary" href="tel:+15552147832"
+              >Call</a
+            >
+            <a class="btn btn-secondary" href="#contact-form" data-mobile-close
+              >Request Estimate</a
+            >
+          </div>
+        </nav>
+      </div>
+      <div class="drawer-overlay" data-drawer-overlay></div>
+    </header>
+
+    <main>
+      <section class="page-hero contact-hero" aria-label="Contact hero">
+        <div class="container">
+          <h1>Contact Plumbing Match Hub</h1>
+          <p>
+            Call us or submit your request details and we will help route your
+            information for local contractor follow-up.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Contact options and form">
+        <div class="container contact-grid">
+          <article class="form-card">
+            <h2 id="contact-form">Request an Estimate Connection</h2>
+            <p class="form-helper">
+              Tell us what is going on, and we will help connect your request
+              with local independent plumbing service providers.
+            </p>
+            <form class="lead-form" data-lead-form novalidate>
+              <div class="form-row">
+                <label for="contact-full-name">Full Name</label
+                ><input
+                  id="contact-full-name"
+                  name="fullName"
+                  type="text"
+                  autocomplete="name"
+                  required
+                /><span class="field-error" data-error></span>
+              </div>
+              <div class="form-row">
+                <label for="contact-phone">Phone Number</label
+                ><input
+                  id="contact-phone"
+                  name="phoneNumber"
+                  type="tel"
+                  autocomplete="tel"
+                  placeholder="(555) 555-5555"
+                  required
+                /><span class="field-error" data-error></span>
+              </div>
+              <div class="form-row">
+                <label for="contact-zip">ZIP Code</label
+                ><input
+                  id="contact-zip"
+                  name="zipCode"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                  required
+                /><span class="field-error" data-error></span>
+              </div>
+              <div class="form-row">
+                <label for="contact-service">Service Needed</label
+                ><select id="contact-service" name="serviceNeeded" required>
+                  <option value="">Select a service</option>
+                  <option>Emergency Plumbing</option>
+                  <option>Drain Cleaning</option>
+                  <option>Leak Detection</option>
+                  <option>Water Heater Services</option>
+                  <option>Toilet Repair &amp; Installation</option>
+                  <option>Faucet &amp; Fixture Services</option>
+                  <option>Plumbing Repairs &amp; Maintenance</option>
+                  <option>Plumbing Replacement</option>
+                  <option>Plumbing Installation</option></select
+                ><span class="field-error" data-error></span>
+              </div>
+              <div class="form-row">
+                <label for="contact-message">Message</label
+                ><textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="Describe your plumbing concern"
+                ></textarea
+                ><span class="field-error" data-error></span>
+              </div>
+              <button class="btn btn-primary" type="submit">
+                Submit Request
+              </button>
+              <p class="form-helper">
+                Your information helps route your request to relevant local
+                providers.
+              </p>
+              <div
+                class="form-success"
+                data-form-success
+                role="status"
+                aria-live="polite"
+              ></div>
+            </form>
+          </article>
+
+          <aside class="contact-info-cards">
+            <article class="contact-info-card">
+              <h3>Call</h3>
+              <p><a href="tel:+15552147832">(555) 214-7832</a></p>
+            </article>
+            <article class="contact-info-card">
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:support@plumbingmatchhub.com"
+                  >support@plumbingmatchhub.com</a
+                >
+              </p>
+            </article>
+            <article class="contact-info-card">
+              <h3>WhatsApp (Placeholder)</h3>
+              <p>
+                <a href="#" aria-label="WhatsApp placeholder contact link"
+                  >+1 (555) 214-7832</a
+                >
+              </p>
+            </article>
+            <article class="contact-info-card">
+              <h3>Working Hours</h3>
+              <p>
+                Monday - Sunday: 7:00 AM to 10:00 PM (U.S. support coverage)
+              </p>
+            </article>
+            <article class="contact-info-card">
+              <h3>Company Details</h3>
+              <p>
+                SRP Group s.r.o.<br />Pri smaltovni 3603/4, 851 01 Bratislava,
+                Slovak Republic<br />Company No.: 53 514 521
+              </p>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Map section">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">Location Info</span>
+            <h2>Find Us on the Map</h2>
+            <p>View the company registration location.</p>
+          </div>
+          <div class="map-placeholder">
+            <iframe
+              class="map-embed"
+              title="Company location map"
+              src="https://www.google.com/maps?q=Pri+smaltovni+3603%2F4%2C+851+01+Bratislava&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <p class="map-caption">
+              Office registration address for SRP Group s.r.o.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+      <div class="container footer-top">
+        <section class="footer-brand">
+          <a class="brand" href="index.html"
+            ><span class="brand-mark">PM</span></a
+          >
+          <p>
+            Homeowner-focused plumbing referral platform connecting requests
+            with independent local service providers.
+          </p>
+          <p>
+            SRP Group s.r.o.<br />Pri smaltovni 3603/4, 851 01 Bratislava,
+            Slovak Republic<br />Company No.: 53 514 521
+          </p>
+        </section>
+        <section class="footer-links">
+          <h3>Site Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </section>
+        <section class="footer-contact">
+          <h3>Service Links</h3>
+          <ul>
+            <li>
+              <a href="services/emergency-plumbing.html">Emergency Plumbing</a>
+            </li>
+            <li>
+              <a href="services/plumbing-repairs-maintenance.html"
+                >Repairs &amp; Maintenance</a
+              >
+            </li>
+            <li><a href="services/drain-cleaning.html">Drain Cleaning</a></li>
+            <li>
+              <a href="services/water-heater-services.html"
+                >Water Heater Services</a
+              >
+            </li>
+            <li><a href="tel:+15552147832">Phone: (555) 214-7832</a></li>
+            <li>
+              <a href="mailto:support@plumbingmatchhub.com"
+                >Email: support@plumbingmatchhub.com</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>
+            Disclaimer: This site is a free service to assist homeowners in
+            connecting with local service providers. All contractors/providers
+            are independent and this site does not warrant or guarantee any work
+            performed. It is the responsibility of the homeowner to verify that
+            the hired contractor furnishes the necessary license and insurance
+            required for the work being performed. All persons depicted in a
+            photo or video are actors or models and not contractors listed on
+            this site.
+          </p>
+          <p>
+            &copy; <span data-current-year></span> Plumbing Match Hub. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      class="floating-call"
+      data-floating-call
+      href="tel:+15552147832"
+      aria-label="Call Plumbing Match Hub"
+      >Call Now</a
+    >
+
+    <script src="js/main.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
+    <script src="js/sticky-call.js" defer></script>
+    <script src="js/form-validation.js" defer></script>
+  </body>
+</html>

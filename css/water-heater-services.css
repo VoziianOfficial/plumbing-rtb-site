@@ -1,0 +1,7 @@
+.service-hero--water-heater::after {
+  background-image: url("../images/services/water-heater-services/hero.svg");
+}
+
+.page-water-heater .callout {
+  background: #f3f8fe;
+}

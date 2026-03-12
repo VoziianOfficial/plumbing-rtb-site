@@ -1,0 +1,65 @@
+.contact-hero {
+  background:
+    linear-gradient(145deg, rgba(13, 47, 87, 0.97), rgba(20, 82, 137, 0.9)),
+    url("../images/contact/contact-support.svg") center / cover no-repeat;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.contact-info-cards {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-info-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(13, 47, 87, 0.09);
+  box-shadow: 0 8px 18px rgba(10, 39, 74, 0.08);
+  padding: 1rem;
+}
+
+.contact-info-card h3 {
+  margin: 0 0 0.35rem;
+  color: #0d2f57;
+}
+
+.contact-info-card p {
+  margin: 0;
+  color: #446385;
+}
+
+.map-placeholder {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(13, 47, 87, 0.12);
+}
+
+.map-embed {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .map-embed {
+    height: 260px;
+  }
+}
+
+.map-caption {
+  padding: 0.8rem 1rem;
+  background: #fff;
+  color: #446385;
+}
+
+@media (max-width: 960px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

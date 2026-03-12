@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plumbing Match Hub | Connect With Local Plumbing Contractors</title>
+    <meta
+      name="description"
+      content="Plumbing Match Hub helps homeowners connect with local independent plumbing contractors for urgent and non-urgent plumbing requests."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="Plumbing Match Hub home">
+          <span class="brand-mark">PM</span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a data-nav-link href="index.html">Home</a></li>
+            <li><a data-nav-link href="index.html#services">Services</a></li>
+            <li><a data-nav-link href="about.html">About</a></li>
+            <li><a data-nav-link href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-cta">
+          <a class="phone-link" href="tel:+15552147832">(555) 214-7832</a>
+          <a class="btn btn-primary" href="contact.html">Request Quotes</a>
+          <a
+            class="mobile-call-icon"
+            href="tel:+15552147832"
+            aria-label="Call now"
+            >&#9742;</a
+          >
+          <button
+            class="mobile-toggle"
+            data-mobile-toggle
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Open menu"
+          >
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="mobile-drawer"
+        id="mobileMenu"
+        data-mobile-drawer
+        aria-hidden="true"
+      >
+        <nav aria-label="Mobile navigation">
+          <ul>
+            <li><a data-mobile-close href="index.html">Home</a></li>
+            <li>
+              <a data-mobile-close href="index.html#services">Services</a>
+            </li>
+            <li><a data-mobile-close href="about.html">About</a></li>
+            <li><a data-mobile-close href="contact.html">Contact</a></li>
+          </ul>
+          <div class="drawer-cta">
+            <a class="btn btn-primary" href="tel:+15552147832"
+              >Call</a
+            >
+            <a class="btn btn-secondary" href="contact.html" data-mobile-close
+              >Request Estimate</a
+            >
+          </div>
+        </nav>
+      </div>
+      <div class="drawer-overlay" data-drawer-overlay></div>
+    </header>
+
+    <main>
+      <section class="hero home-hero" aria-label="Plumbing lead request hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="badge">Local Plumbing Connections</span>
+            <h1>Connect With Local Plumbers for Fast Home Service Requests</h1>
+            <p class="lead">
+              Plumbing Match Hub helps homeowners compare response options and
+              connect with independent local plumbing contractors for urgent and
+              non-urgent issues.
+            </p>
+
+            <div class="hero-feature-layout">
+              <section
+                class="hero-feature-carousel"
+                data-hero-carousel
+                aria-label="Plumbing request highlights"
+              >
+                <div class="hero-feature-track">
+                  <div class="hero-feature-copy">
+                    <article
+                      class="hero-feature-slide is-active"
+                      data-carousel-slide
+                    >
+                      <p>
+                        Fast local contractor matching for common residential
+                        plumbing issues
+                      </p>
+                    </article>
+                    <article class="hero-feature-slide" data-carousel-slide>
+                      <p>
+                        Emergency request options available for urgent
+                        situations
+                      </p>
+                    </article>
+                    <article class="hero-feature-slide" data-carousel-slide>
+                      <p>
+                        Simple estimate request process designed for homeowners
+                      </p>
+                    </article>
+                    <article class="hero-feature-slide" data-carousel-slide>
+                      <p>
+                        Helpful support for repairs, installation, replacement,
+                        and diagnostics
+                      </p>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="hero-feature-controls">
+                  <div
+                    class="hero-feature-dots"
+                    role="tablist"
+                    aria-label="Highlight slides"
+                  >
+                    <button
+                      class="hero-feature-dot is-active"
+                      type="button"
+                      data-carousel-dot="0"
+                      aria-label="Show highlight 1"
+                      aria-selected="true"
+                    ></button>
+                    <button
+                      class="hero-feature-dot"
+                      type="button"
+                      data-carousel-dot="1"
+                      aria-label="Show highlight 2"
+                      aria-selected="false"
+                    ></button>
+                    <button
+                      class="hero-feature-dot"
+                      type="button"
+                      data-carousel-dot="2"
+                      aria-label="Show highlight 3"
+                      aria-selected="false"
+                    ></button>
+                    <button
+                      class="hero-feature-dot"
+                      type="button"
+                      data-carousel-dot="3"
+                      aria-label="Show highlight 4"
+                      aria-selected="false"
+                    ></button>
+                  </div>
+                  <div class="hero-feature-arrows">
+                    <button
+                      class="hero-feature-arrow"
+                      type="button"
+                      data-carousel-prev
+                      aria-label="Previous highlight"
+                    >
+                      &lsaquo;
+                    </button>
+                    <button
+                      class="hero-feature-arrow"
+                      type="button"
+                      data-carousel-next
+                      aria-label="Next highlight"
+                    >
+                      &rsaquo;
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <figure class="hero-feature-image">
+                <img
+                  src="images/home/plumbing team.jpg"
+                  alt="Plumbing specialist helping homeowners"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="contact.html">Request Quotes</a>
+              <a class="btn btn-ghost" href="tel:+15552147832">Call Now</a>
+            </div>
+          </div>
+
+          <aside
+            class="hero-form-wrap"
+            id="hero-form"
+            aria-label="Estimate request form"
+          >
+            <h2>Start Your Plumbing Request</h2>
+            <p class="form-helper">
+              Share your details and we will help route your request to local
+              service providers in your area.
+            </p>
+            <form class="lead-form" data-lead-form novalidate>
+              <div class="form-row">
+                <label for="home-full-name">Full Name</label>
+                <input
+                  id="home-full-name"
+                  name="fullName"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+                <span class="field-error" data-error></span>
+              </div>
+              <div class="form-row">
+                <label for="home-phone">Phone Number</label>
+                <input
+                  id="home-phone"
+                  name="phoneNumber"
+                  type="tel"
+                  autocomplete="tel"
+                  placeholder="(555) 555-5555"
+                  required
+                />
+                <span class="field-error" data-error></span>
+              </div>
+              <div class="form-row">
+                <label for="home-zip">ZIP Code</label>
+                <input
+                  id="home-zip"
+                  name="zipCode"
+                  type="text"
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                  required
+                />
+                <span class="field-error" data-error></span>
+              </div>
+              <div class="form-row">
+                <label for="home-service">Service Needed</label>
+                <select id="home-service" name="serviceNeeded" required>
+                  <option value="">Select a service</option>
+                  <option>Emergency Plumbing</option>
+                  <option>Plumbing Repairs &amp; Maintenance</option>
+                  <option>Drain Cleaning</option>
+                  <option>Plumbing Replacement</option>
+                  <option>Plumbing Installation</option>
+                  <option>Water Heater Services</option>
+                  <option>Leak Detection</option>
+                  <option>Toilet Repair &amp; Installation</option>
+                  <option>Faucet &amp; Fixture Services</option>
+                </select>
+                <span class="field-error" data-error></span>
+              </div>
+              <div class="form-row">
+                <label for="home-message">Optional Message</label>
+                <textarea
+                  id="home-message"
+                  name="message"
+                  placeholder="Briefly describe what is happening"
+                ></textarea>
+                <span class="field-error" data-error></span>
+              </div>
+              <button class="btn btn-primary" type="submit">
+                Submit Request
+              </button>
+              <p class="form-helper">
+                By submitting, you authorize contact about your request. Message
+                and data rates may apply.
+              </p>
+              <div
+                class="form-success"
+                data-form-success
+                role="status"
+                aria-live="polite"
+              ></div>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+      <section class="trust-bar" aria-label="Trust points">
+        <div class="container">
+          <ul class="trust-list">
+            <li>Fast Local Matching</li>
+            <li>Emergency Help Available</li>
+            <li>Residential Plumbing Support</li>
+            <li>Local Contractor Network</li>
+            <li>Transparent Estimate Requests</li>
+            <li>Reliable Service Connections</li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="services"
+        aria-label="Plumbing service categories"
+      >
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">Service Categories</span>
+            <h2>Explore Plumbing Services Homeowners Request Most</h2>
+            <p>
+              Browse common service categories and find the right path for your
+              situation.
+            </p>
+          </div>
+          <div class="card-grid service-grid">
+            <article class="service-card">
+              <h3>Emergency Plumbing</h3>
+              <p>Urgent leaks, bursts, and overflows.</p>
+              <a class="btn btn-ghost" href="services/emergency-plumbing.html"
+                >View Service</a
+              >
+            </article>
+            <article class="service-card">
+              <h3>Plumbing Repairs &amp; Maintenance</h3>
+              <p>Recurring issues and routine checks.</p>
+              <a
+                class="btn btn-ghost"
+                href="services/plumbing-repairs-maintenance.html"
+                >View Service</a
+              >
+            </article>
+            <article class="service-card">
+              <h3>Drain Cleaning</h3>
+              <p>Slow drains and recurring clogs.</p>
+              <a class="btn btn-ghost" href="services/drain-cleaning.html"
+                >View Service</a
+              >
+            </article>
+            <article class="service-card">
+              <h3>Plumbing Replacement</h3>
+              <p>Worn fixtures and aging components.</p>
+              <a class="btn btn-ghost" href="services/plumbing-replacement.html"
+                >View Service</a
+              >
+            </article>
+            <article class="service-card">
+              <h3>Plumbing Installation</h3>
+              <p>Fixture installs and home updates.</p>
+              <a
+                class="btn btn-ghost"
+                href="services/plumbing-installation.html"
+                >View Service</a
+              >
+            </article>
+            <article class="service-card">
+              <h3>Water Heater Services</h3>
+              <p>Hot water issues and replacement planning.</p>
+              <a
+                class="btn btn-ghost"
+                href="services/water-heater-services.html"
+                >View Service</a
+              >
+            </article>
+            <article class="service-card">
+              <h3>Leak Detection</h3>
+              <p>Hidden moisture and leak source checks.</p>
+              <a class="btn btn-ghost" href="services/leak-detection.html"
+                >View Service</a
+              >
+            </article>
+            <article class="service-card">
+              <h3>Toilet Repair &amp; Installation</h3>
+              <p>Toilet leaks, clogs, and replacement.</p>
+              <a
+                class="btn btn-ghost"
+                href="services/toilet-repair-installation.html"
+                >View Service</a
+              >
+            </article>
+            <article class="service-card">
+              <h3>Faucet &amp; Fixture Services</h3>
+              <p>Kitchen and bath fixture updates.</p>
+              <a
+                class="btn btn-ghost"
+                href="services/faucet-fixture-services.html"
+                >View Service</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="How plumbing matching works">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">How It Works</span>
+            <h2>A Straightforward 4-Step Connection Process</h2>
+          </div>
+          <div class="card-grid steps-grid">
+            <article class="step-card">
+              <span class="step-number">1</span>
+              <h3>Tell us about your issue</h3>
+              <p>Share details and ZIP Code.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">2</span>
+              <h3>Connect with local contractors</h3>
+              <p>Independent providers receive your request.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">3</span>
+              <h3>Review options</h3>
+              <p>Compare contact and estimate details.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">4</span>
+              <h3>Move forward faster</h3>
+              <p>Choose the provider that fits your needs.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Plumbing project examples">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">Project Preview</span>
+            <h2>
+              Common Residential Plumbing Projects Homeowners Often Request
+            </h2>
+          </div>
+          <div class="card-grid gallery-grid">
+            <article class="project-card">
+              <img
+                src="images/home/kitchen-repeir.jpg"
+                alt="Kitchen sink plumbing repair example"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="project-content">
+                <h3>Kitchen Sink Drain and Faucet Updates</h3>
+                <p>Clog removal, leak checks, and faucet updates.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <img
+                src="images/home/service-man-heating-system.jpg"
+                alt="Residential water heater service example"
+              />
+              <div class="project-content">
+                <h3>Water Heater Troubleshooting and Replacement</h3>
+                <p>Common hot-water reliability requests.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <img
+                src="images/home/bathroom-repair.jpg"
+                class="project-image--bathroom-lower"
+                alt="Bathroom plumbing fixture replacement example"
+              />
+              <div class="project-content">
+                <h3>Bathroom Fixture Repair and Installation</h3>
+                <p>Toilet and fixture requests tied to leaks and wear.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Frequently asked questions">
+        <div class="container">
+          <div class="section-header">
+            <span class="badge">FAQ</span>
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-list">
+            <article class="faq-item" data-faq-item>
+              <button
+                class="faq-question"
+                data-faq-button
+                aria-expanded="false"
+              >
+                Is Plumbing Match Hub a plumbing company?<span data-faq-icon
+                  >+</span
+                >
+              </button>
+              <div class="faq-answer">
+                <p>
+                  No. It is a referral platform that connects homeowners with
+                  independent local providers.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item" data-faq-item>
+              <button
+                class="faq-question"
+                data-faq-button
+                aria-expanded="false"
+              >
+                How fast can I get connected?<span data-faq-icon>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Urgent requests are prioritized based on local contractor
+                  availability.
+                </p>
+              </div>
+            </article>
+            <article class="faq-item" data-faq-item>
+              <button
+                class="faq-question"
+                data-faq-button
+                aria-expanded="false"
+              >
+                Is request submission free?<span data-faq-icon>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes. Submitting a request is free for homeowners.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Final call to action">
+        <div class="container">
+          <div class="cta-band">
+            <h2>Need Plumbing Help Without the Guesswork?</h2>
+            <p>
+              Call now or request quotes to connect with local independent
+              plumbing professionals in your area.
+            </p>
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="tel:+15552147832"
+                >Call</a
+              >
+              <a class="btn btn-secondary" href="contact.html"
+                >Request Estimate</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+      <div class="container footer-top">
+        <section class="footer-brand">
+          <a class="brand" href="index.html"
+            ><span class="brand-mark">PM</span></a
+          >
+          <p>
+            Homeowner-focused plumbing referral platform connecting requests
+            with independent local contractors.
+          </p>
+          <p>
+            SRP Group s.r.o.<br />
+            Pri smaltovni 3603/4, 851 01 Bratislava, Slovak Republic<br />
+            Company No.: 53 514 521
+          </p>
+        </section>
+
+        <section class="footer-links">
+          <h3>Site Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </section>
+
+        <section class="footer-contact">
+          <h3>Service Links</h3>
+          <ul>
+            <li>
+              <a href="services/emergency-plumbing.html">Emergency Plumbing</a>
+            </li>
+            <li>
+              <a href="services/plumbing-repairs-maintenance.html"
+                >Repairs &amp; Maintenance</a
+              >
+            </li>
+            <li><a href="services/drain-cleaning.html">Drain Cleaning</a></li>
+            <li>
+              <a href="services/water-heater-services.html"
+                >Water Heater Services</a
+              >
+            </li>
+            <li><a href="tel:+15552147832">Phone: (555) 214-7832</a></li>
+            <li>
+              <a href="mailto:support@plumbingmatchhub.com"
+                >Email: support@plumbingmatchhub.com</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>
+            Disclaimer: This site is a free service to assist homeowners in
+            connecting with local service providers. All contractors/providers
+            are independent and this site does not warrant or guarantee any work
+            performed. It is the responsibility of the homeowner to verify that
+            the hired contractor furnishes the necessary license and insurance
+            required for the work being performed. All persons depicted in a
+            photo or video are actors or models and not contractors listed on
+            this site.
+          </p>
+          <p>
+            &copy; <span data-current-year></span> Plumbing Match Hub. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      class="floating-call"
+      data-floating-call
+      href="tel:+15552147832"
+      aria-label="Call Plumbing Match Hub"
+      >Call Now</a
+    >
+
+    <script src="js/main.js" defer></script>
+    <script src="js/mobile-menu.js" defer></script>
+    <script src="js/faq.js" defer></script>
+    <script src="js/sticky-call.js" defer></script>
+    <script src="js/form-validation.js" defer></script>
+  </body>
+</html>

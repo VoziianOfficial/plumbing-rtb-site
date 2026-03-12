@@ -1,0 +1,7 @@
+.service-hero--leak::after {
+  background-image: url("../images/services/leak-detection/hero.svg");
+}
+
+.page-leak .info-card {
+  border-color: rgba(13, 47, 87, 0.14);
+}

@@ -1,0 +1,7 @@
+.service-hero--faucet::after {
+  background-image: url("../images/services/faucet-fixture-services/hero.svg");
+}
+
+.page-faucet .info-card {
+  box-shadow: 0 10px 22px rgba(10, 39, 74, 0.09);
+}

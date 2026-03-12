@@ -1,0 +1,7 @@
+.service-hero--toilet::after {
+  background-image: url("../images/services/toilet-repair-installation/hero.svg");
+}
+
+.page-toilet .problem-card {
+  background: linear-gradient(180deg, #ffffff, #f6fbff);
+}
