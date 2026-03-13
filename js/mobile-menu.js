@@ -9,8 +9,57 @@
   const mainList = nav?.querySelector("ul");
   if (!nav || !mainList) return;
 
+  const createIcon = (name, className = "") => {
+    const icon = document.createElement("span");
+    icon.className = `material-symbols-outlined ${className}`.trim();
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = name;
+    return icon;
+  };
+
+  const createCloseIcon = () => {
+    const namespace = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(namespace, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("aria-hidden", "true");
+    svg.classList.add("mobile-drawer-close-icon");
+
+    const path = document.createElementNS(namespace, "path");
+    path.setAttribute(
+      "d",
+      "M6.4 6.4a1 1 0 0 1 1.4 0L12 10.6l4.2-4.2a1 1 0 1 1 1.4 1.4L13.4 12l4.2 4.2a1 1 0 0 1-1.4 1.4L12 13.4l-4.2 4.2a1 1 0 0 1-1.4-1.4l4.2-4.2-4.2-4.2a1 1 0 0 1 0-1.4Z"
+    );
+    path.setAttribute("fill", "currentColor");
+    svg.append(path);
+
+    return svg;
+  };
+
+  const createMenuIcon = () => {
+    const namespace = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(namespace, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("aria-hidden", "true");
+    svg.classList.add("mobile-toggle-icon");
+
+    const path = document.createElementNS(namespace, "path");
+    path.setAttribute("d", "M5 7.5h14M8 12h11M5 16.5h14");
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke", "currentColor");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-width", "2.2");
+    svg.append(path);
+
+    return svg;
+  };
+
   const inServicesFolder = window.location.pathname.includes("/services/");
   const basePath = inServicesFolder ? "../" : "";
+
+  if (!toggleButton.querySelector(".mobile-toggle-icon")) {
+    toggleButton.replaceChildren(createMenuIcon());
+  }
+
   const serviceLinks = [
     { href: "services/emergency-plumbing.html", label: "Emergency Plumbing" },
     {
@@ -64,8 +113,15 @@
     servicesToggle.setAttribute("aria-expanded", "false");
     servicesToggle.setAttribute("aria-controls", "mobileServicesList");
     servicesToggle.setAttribute("aria-label", "Toggle service links");
-    servicesToggle.innerHTML =
-      '<span>Services</span><span class="mobile-services-chevron" aria-hidden="true"></span>';
+    const servicesToggleLabel = document.createElement("span");
+    servicesToggleLabel.className = "mobile-services-label";
+    servicesToggleLabel.append(createIcon("construction", "menu-link-icon"));
+    servicesToggleLabel.append("Services");
+    servicesToggle.append(servicesToggleLabel);
+    const servicesChevron = document.createElement("span");
+    servicesChevron.className = "mobile-services-chevron";
+    servicesChevron.setAttribute("aria-hidden", "true");
+    servicesToggle.append(servicesChevron);
 
     servicesList = document.createElement("ul");
     servicesList.className = "mobile-services-list";
@@ -76,7 +132,8 @@
       const item = document.createElement("li");
       const link = document.createElement("a");
       link.href = `${basePath}${service.href}`;
-      link.textContent = service.label;
+      link.append(createIcon("chevron_right", "menu-link-icon"));
+      link.append(service.label);
       link.setAttribute("data-mobile-close", "");
       item.append(link);
       servicesList.append(item);
@@ -90,7 +147,9 @@
     const cookieSettingsLink = document.createElement("a");
     cookieSettingsLink.className = "mobile-cookie-settings";
     cookieSettingsLink.href = `${basePath}cookie-policy.html`;
-    cookieSettingsLink.textContent = "Cookie Settings";
+    cookieSettingsLink.append(createIcon("cookie", "menu-link-icon"));
+    cookieSettingsLink.append("Cookie Settings");
+    cookieSettingsLink.dataset.iconized = "true";
     cookieSettingsLink.setAttribute("data-mobile-close", "");
     nav.append(cookieSettingsLink);
   }
@@ -102,7 +161,7 @@
     closeButton.className = "mobile-drawer-close";
     closeButton.setAttribute("aria-label", "Close menu");
     closeButton.setAttribute("data-mobile-drawer-close", "");
-    closeButton.textContent = "×";
+    closeButton.append(createCloseIcon());
     drawer.prepend(closeButton);
   }
 

@@ -1,5 +1,56 @@
-.service-hero--leak::after {
-  background-image: url("../images/services/leak-detection/hero.svg");
+.service-hero--leak {
+  --service-hero-start: rgba(10, 47, 82, 0.98);
+  --service-hero-end: rgba(10, 92, 114, 0.86);
+  --service-hero-glow-1: rgba(141, 223, 255, 0.2);
+  --service-hero-glow-2: rgba(239, 123, 45, 0.14);
+  --service-hero-base-duration: 8.4s;
+  --service-hero-art-duration: 9.8s;
+  --service-pattern-one:
+    radial-gradient(circle, rgba(173, 233, 255, 0.28) 0 28%, transparent 29%);
+  --service-pattern-two:
+    radial-gradient(circle, rgba(173, 233, 255, 0.16) 0 18%, transparent 19%);
+  --service-pattern-three:
+    repeating-linear-gradient(
+      -22deg,
+      rgba(255, 255, 255, 0.08) 0 1px,
+      transparent 1px 20px
+    );
+  --service-pattern-four:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 62%);
+  --service-pattern-one-size: 7rem 7rem;
+  --service-pattern-two-size: 5rem 5rem;
+  --service-pattern-three-size: 46% 100%;
+  --service-pattern-four-size: 18% 100%;
+  --service-pattern-one-pos: 78% 28%;
+  --service-pattern-two-pos: 88% 56%;
+  --service-pattern-three-pos: right center;
+  --service-pattern-four-pos: left top;
+  --service-hero-art-opacity: 0.92;
+  --service-hero-accent-one:
+    radial-gradient(circle at 48% 26%, rgba(190, 236, 255, 0.26) 0 18%, transparent 19%),
+    radial-gradient(circle at 56% 54%, rgba(255, 255, 255, 0.16) 0 12%, transparent 13%),
+    radial-gradient(circle at 42% 80%, rgba(190, 236, 255, 0.18) 0 10%, transparent 11%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 60%);
+  --service-hero-accent-one-width: 14rem;
+  --service-hero-accent-one-height: 14rem;
+  --service-hero-accent-one-top: 10%;
+  --service-hero-accent-one-right: 8%;
+  --service-hero-accent-one-radius: 50%;
+  --service-hero-accent-one-duration: 6.8s;
+  --service-hero-accent-two:
+    repeating-linear-gradient(
+      -20deg,
+      rgba(255, 255, 255, 0.12) 0 1px,
+      transparent 1px 18px
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  --service-hero-accent-two-width: 12rem;
+  --service-hero-accent-two-height: 6rem;
+  --service-hero-accent-two-bottom: 12%;
+  --service-hero-accent-two-right: 22%;
+  --service-hero-accent-two-radius: 24px;
+  --service-hero-accent-two-opacity: 0.72;
+  --service-hero-accent-two-duration: 5.9s;
 }
 
 .page-leak .info-card {

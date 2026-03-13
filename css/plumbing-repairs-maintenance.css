@@ -1,5 +1,59 @@
-.service-hero--repairs::after {
-  background-image: url("../images/services/plumbing-repairs-maintenance/hero.svg");
+.service-hero--repairs {
+  --service-hero-start: rgba(11, 43, 79, 0.98);
+  --service-hero-end: rgba(22, 101, 146, 0.86);
+  --service-hero-glow-1: rgba(239, 123, 45, 0.14);
+  --service-hero-glow-2: rgba(170, 228, 255, 0.18);
+  --service-hero-base-duration: 8.8s;
+  --service-hero-art-duration: 10.2s;
+  --service-pattern-one:
+    repeating-linear-gradient(
+      90deg,
+      rgba(199, 230, 255, 0.12) 0 1px,
+      transparent 1px 18px
+    );
+  --service-pattern-two:
+    repeating-linear-gradient(
+      0deg,
+      rgba(199, 230, 255, 0.12) 0 1px,
+      transparent 1px 18px
+    );
+  --service-pattern-three:
+    radial-gradient(circle, rgba(239, 123, 45, 0.22) 0 31%, transparent 32%);
+  --service-pattern-one-size: 44% 72%;
+  --service-pattern-two-size: 44% 72%;
+  --service-pattern-three-size: 10rem 10rem;
+  --service-pattern-one-pos: 80% 50%;
+  --service-pattern-two-pos: 80% 50%;
+  --service-pattern-three-pos: 18% 72%;
+  --service-hero-art-opacity: 0.92;
+  --service-hero-accent-one:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(205, 233, 255, 0.16) 0 1px,
+      transparent 1px 18px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(205, 233, 255, 0.16) 0 1px,
+      transparent 1px 18px
+    );
+  --service-hero-accent-one-width: 15rem;
+  --service-hero-accent-one-height: 11rem;
+  --service-hero-accent-one-top: 13%;
+  --service-hero-accent-one-right: 8%;
+  --service-hero-accent-one-radius: 26px;
+  --service-hero-accent-one-duration: 7.2s;
+  --service-hero-accent-two:
+    radial-gradient(circle at 50% 50%, rgba(239, 123, 45, 0.3) 0 18%, transparent 19%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+  --service-hero-accent-two-width: 7.5rem;
+  --service-hero-accent-two-height: 7.5rem;
+  --service-hero-accent-two-bottom: 12%;
+  --service-hero-accent-two-right: 24%;
+  --service-hero-accent-two-radius: 22px;
+  --service-hero-accent-two-opacity: 0.76;
+  --service-hero-accent-two-duration: 6.2s;
 }
 
 .page-repairs .info-card {

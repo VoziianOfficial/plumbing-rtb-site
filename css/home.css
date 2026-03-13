@@ -6,6 +6,21 @@
   margin-top: 0.35rem;
 }
 
+.hero-search-trigger {
+  margin-bottom: 0.95rem;
+  max-width: min(100%, 22rem);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(237, 244, 252, 0.92)
+  );
+  backdrop-filter: blur(5px);
+}
+
+.hero-search-trigger .brand-search-trigger__icon {
+  background: rgba(13, 47, 87, 0.09);
+}
+
 .hero-feature-layout {
   margin-bottom: 1.6rem;
   display: grid;
@@ -176,6 +191,88 @@
   object-position: center 7%;
 }
 
+.gallery-grid[data-project-slider] {
+  position: relative;
+}
+
+.gallery-grid[data-project-slider]::before {
+  content: "";
+  position: absolute;
+  inset: auto 8% -1.5rem 8%;
+  height: 10rem;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(31, 95, 157, 0.14),
+    rgba(31, 95, 157, 0)
+  );
+  filter: blur(20px);
+  animation: sliderAura 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.gallery-grid[data-project-slider] .project-card {
+  position: relative;
+  isolation: isolate;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.gallery-grid[data-project-slider] .project-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 24, 46, 0),
+    rgba(5, 24, 46, 0.08) 60%,
+    rgba(5, 24, 46, 0.14)
+  );
+  pointer-events: none;
+}
+
+.gallery-grid[data-project-slider] .project-card:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.gallery-grid[data-project-slider] .project-card:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+.gallery-grid[data-project-slider] .project-card img {
+  transition:
+    transform 360ms ease,
+    filter 360ms ease;
+}
+
+.gallery-grid[data-project-slider] .project-card:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.06);
+}
+
+.gallery-grid[data-project-slider] .project-content {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes sliderAura {
+  0% {
+    transform: translateX(-2%) scale(0.96);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translateX(2%) scale(1.02);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: translateX(-2%) scale(0.96);
+    opacity: 0.55;
+  }
+}
+
 @keyframes heroSlideIn {
   from {
     opacity: 0;
@@ -189,6 +286,10 @@
 }
 
 @media (max-width: 768px) {
+  .hero-search-trigger {
+    max-width: 100%;
+  }
+
   .hero-feature-layout {
     grid-template-columns: 1fr;
     margin-bottom: 1.25rem;
@@ -196,6 +297,10 @@
 
   .hero-feature-image {
     display: none;
+  }
+
+  .gallery-grid[data-project-slider]::before {
+    inset: auto 5% -1.2rem 5%;
   }
 
   .hero-feature-carousel {

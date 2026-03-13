@@ -1,5 +1,71 @@
-.service-hero--installation::after {
-  background-image: url("../images/services/plumbing-installation/hero.svg");
+.service-hero--installation {
+  --service-hero-start: rgba(10, 45, 81, 0.98);
+  --service-hero-end: rgba(17, 103, 151, 0.86);
+  --service-hero-glow-1: rgba(239, 123, 45, 0.16);
+  --service-hero-glow-2: rgba(176, 228, 255, 0.18);
+  --service-hero-base-duration: 8.1s;
+  --service-hero-art-duration: 9.6s;
+  --service-pattern-one:
+    repeating-linear-gradient(
+      90deg,
+      rgba(204, 233, 255, 0.13) 0 1px,
+      transparent 1px 18px
+    );
+  --service-pattern-two:
+    repeating-linear-gradient(
+      0deg,
+      rgba(204, 233, 255, 0.13) 0 1px,
+      transparent 1px 18px
+    );
+  --service-pattern-three:
+    linear-gradient(
+      145deg,
+      transparent 0 48%,
+      rgba(239, 123, 45, 0.24) 48% 52%,
+      transparent 52% 100%
+    );
+  --service-pattern-four:
+    radial-gradient(circle, rgba(255, 255, 255, 0.16) 0 30%, transparent 31%);
+  --service-pattern-one-size: 44% 78%;
+  --service-pattern-two-size: 44% 78%;
+  --service-pattern-three-size: 48% 82%;
+  --service-pattern-four-size: 9rem 9rem;
+  --service-pattern-one-pos: 80% 48%;
+  --service-pattern-two-pos: 80% 48%;
+  --service-pattern-three-pos: 80% 48%;
+  --service-pattern-four-pos: 18% 24%;
+  --service-hero-art-opacity: 0.92;
+  --service-hero-accent-one:
+    linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.02)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(204, 233, 255, 0.14) 0 1px,
+      transparent 1px 18px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(204, 233, 255, 0.14) 0 1px,
+      transparent 1px 18px
+    );
+  --service-hero-accent-one-width: 15rem;
+  --service-hero-accent-one-height: 15rem;
+  --service-hero-accent-one-top: 7%;
+  --service-hero-accent-one-right: 7%;
+  --service-hero-accent-one-radius: 24px;
+  --service-hero-accent-one-duration: 6.7s;
+  --service-hero-accent-two:
+    linear-gradient(
+      145deg,
+      rgba(239, 123, 45, 0.28),
+      rgba(255, 255, 255, 0.04)
+    );
+  --service-hero-accent-two-width: 9rem;
+  --service-hero-accent-two-height: 4.7rem;
+  --service-hero-accent-two-bottom: 12%;
+  --service-hero-accent-two-right: 23%;
+  --service-hero-accent-two-radius: 22px;
+  --service-hero-accent-two-opacity: 0.82;
+  --service-hero-accent-two-duration: 5.8s;
 }
 
 .page-installation .info-card h3 {

@@ -1,5 +1,52 @@
-.service-hero--drain::after {
-  background-image: url("../images/services/drain-cleaning/hero.svg");
+.service-hero--drain {
+  --service-hero-start: rgba(10, 44, 78, 0.98);
+  --service-hero-end: rgba(7, 103, 128, 0.86);
+  --service-hero-glow-1: rgba(101, 211, 255, 0.2);
+  --service-hero-glow-2: rgba(239, 123, 45, 0.16);
+  --service-hero-base-duration: 8.2s;
+  --service-hero-art-duration: 9.4s;
+  --service-pattern-one:
+    repeating-radial-gradient(
+      circle at center,
+      rgba(187, 234, 255, 0.22) 0 8px,
+      transparent 8px 22px
+    );
+  --service-pattern-two:
+    radial-gradient(circle, rgba(255, 255, 255, 0.16) 0 30%, transparent 31%);
+  --service-pattern-three:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 62%);
+  --service-pattern-one-size: 22rem 22rem;
+  --service-pattern-two-size: 8rem 8rem;
+  --service-pattern-three-size: 24% 100%;
+  --service-pattern-one-pos: 84% 40%;
+  --service-pattern-two-pos: 18% 76%;
+  --service-pattern-three-pos: left center;
+  --service-hero-art-opacity: 0.94;
+  --service-hero-accent-one:
+    radial-gradient(
+      circle at center,
+      transparent 0 44%,
+      rgba(187, 234, 255, 0.28) 45% 48%,
+      transparent 49% 61%,
+      rgba(255, 255, 255, 0.18) 62% 65%,
+      transparent 66%
+    );
+  --service-hero-accent-one-width: 16rem;
+  --service-hero-accent-one-height: 16rem;
+  --service-hero-accent-one-top: 4%;
+  --service-hero-accent-one-right: 6%;
+  --service-hero-accent-one-radius: 50%;
+  --service-hero-accent-one-duration: 6.6s;
+  --service-hero-accent-two:
+    radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.22) 0 16%, transparent 17%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 58%);
+  --service-hero-accent-two-width: 7rem;
+  --service-hero-accent-two-height: 14rem;
+  --service-hero-accent-two-bottom: -2%;
+  --service-hero-accent-two-right: 22%;
+  --service-hero-accent-two-radius: 999px;
+  --service-hero-accent-two-opacity: 0.74;
+  --service-hero-accent-two-duration: 5.7s;
 }
 
 .page-drain .problem-card {

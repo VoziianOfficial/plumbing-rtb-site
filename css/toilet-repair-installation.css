@@ -1,5 +1,61 @@
-.service-hero--toilet::after {
-  background-image: url("../images/services/toilet-repair-installation/hero.svg");
+.service-hero--toilet {
+  --service-hero-start: rgba(11, 50, 86, 0.98);
+  --service-hero-end: rgba(54, 110, 145, 0.86);
+  --service-hero-glow-1: rgba(255, 255, 255, 0.12);
+  --service-hero-glow-2: rgba(176, 228, 255, 0.18);
+  --service-hero-base-duration: 7.9s;
+  --service-hero-art-duration: 9.1s;
+  --service-pattern-one:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.16) 0 38%, transparent 39%);
+  --service-pattern-two:
+    radial-gradient(
+      circle at center,
+      transparent 0 51%,
+      rgba(187, 227, 255, 0.18) 52% 55%,
+      transparent 56%
+    );
+  --service-pattern-three:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), transparent 58%);
+  --service-pattern-four:
+    radial-gradient(circle, rgba(239, 123, 45, 0.14) 0 28%, transparent 29%);
+  --service-pattern-one-size: 18rem 18rem;
+  --service-pattern-two-size: 18rem 18rem;
+  --service-pattern-three-size: 24% 100%;
+  --service-pattern-four-size: 7rem 7rem;
+  --service-pattern-one-pos: 82% 44%;
+  --service-pattern-two-pos: 82% 44%;
+  --service-pattern-three-pos: left top;
+  --service-pattern-four-pos: 20% 76%;
+  --service-hero-art-opacity: 0.93;
+  --service-hero-accent-one:
+    radial-gradient(
+      circle at center,
+      transparent 0 48%,
+      rgba(255, 255, 255, 0.18) 49% 54%,
+      transparent 55% 64%,
+      rgba(188, 227, 255, 0.18) 65% 69%,
+      transparent 70%
+    );
+  --service-hero-accent-one-width: 15rem;
+  --service-hero-accent-one-height: 15rem;
+  --service-hero-accent-one-top: 9%;
+  --service-hero-accent-one-right: 8%;
+  --service-hero-accent-one-radius: 50%;
+  --service-hero-accent-one-duration: 6.5s;
+  --service-hero-accent-two:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(177, 228, 255, 0.08) 45%,
+      transparent 100%
+    );
+  --service-hero-accent-two-width: 10rem;
+  --service-hero-accent-two-height: 5.2rem;
+  --service-hero-accent-two-bottom: 11%;
+  --service-hero-accent-two-right: 24%;
+  --service-hero-accent-two-radius: 999px;
+  --service-hero-accent-two-opacity: 0.74;
+  --service-hero-accent-two-duration: 5.4s;
 }
 
 .page-toilet .problem-card {

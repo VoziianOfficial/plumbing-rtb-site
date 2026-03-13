@@ -1,5 +1,66 @@
-.service-hero--faucet::after {
-  background-image: url("../images/services/faucet-fixture-services/hero.svg");
+.service-hero--faucet {
+  --service-hero-start: rgba(10, 45, 82, 0.98);
+  --service-hero-end: rgba(20, 91, 122, 0.86);
+  --service-hero-glow-1: rgba(132, 214, 255, 0.22);
+  --service-hero-glow-2: rgba(239, 123, 45, 0.16);
+  --service-hero-base-duration: 8s;
+  --service-hero-art-duration: 9.3s;
+  --service-pattern-one:
+    radial-gradient(circle, rgba(132, 214, 255, 0.28) 0 32%, transparent 33%);
+  --service-pattern-two:
+    linear-gradient(
+      135deg,
+      transparent 0 46%,
+      rgba(255, 255, 255, 0.12) 46% 50%,
+      transparent 50% 100%
+    );
+  --service-pattern-three:
+    radial-gradient(
+      circle at center,
+      transparent 0 60%,
+      rgba(255, 255, 255, 0.14) 61% 64%,
+      transparent 65%
+    );
+  --service-pattern-four:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 58%);
+  --service-pattern-one-size: 13rem 13rem;
+  --service-pattern-two-size: 55% 120%;
+  --service-pattern-three-size: 10rem 10rem;
+  --service-pattern-four-size: 18% 100%;
+  --service-pattern-one-pos: 84% 26%;
+  --service-pattern-two-pos: right center;
+  --service-pattern-three-pos: 76% 62%;
+  --service-pattern-four-pos: left top;
+  --service-hero-art-opacity: 0.92;
+  --service-hero-accent-one:
+    linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.02)
+    ),
+    radial-gradient(circle at 72% 38%, rgba(132, 214, 255, 0.24) 0 16%, transparent 17%),
+    linear-gradient(
+      180deg,
+      rgba(132, 214, 255, 0.16),
+      transparent 62%
+    );
+  --service-hero-accent-one-width: 16rem;
+  --service-hero-accent-one-height: 12rem;
+  --service-hero-accent-one-top: 11%;
+  --service-hero-accent-one-right: 8%;
+  --service-hero-accent-one-radius: 38px;
+  --service-hero-accent-one-duration: 6.7s;
+  --service-hero-accent-two:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.2) 0 14%, transparent 15%),
+    radial-gradient(circle at 40% 56%, rgba(132, 214, 255, 0.18) 0 10%, transparent 11%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 65%);
+  --service-hero-accent-two-width: 7rem;
+  --service-hero-accent-two-height: 10rem;
+  --service-hero-accent-two-bottom: 9%;
+  --service-hero-accent-two-right: 24%;
+  --service-hero-accent-two-radius: 999px;
+  --service-hero-accent-two-opacity: 0.75;
+  --service-hero-accent-two-duration: 5.6s;
 }
 
 .page-faucet .info-card {

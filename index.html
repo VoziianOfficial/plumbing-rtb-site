@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plumbing Match Hub | Connect With Local Plumbing Contractors</title>
+    <title>Plumbing Match Hub | Compare Local Plumbing Connection Options</title>
     <meta
       name="description"
-      content="Plumbing Match Hub helps homeowners connect with local independent plumbing contractors for urgent and non-urgent plumbing requests."
+      content="Plumbing Match Hub helps homeowners request quotes and connect with local independent plumbing contractors for emergencies, repairs, leaks, drains, water heaters, and fixture projects."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="/images/icons/favicon.ico">
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/home.css" />
   </head>
@@ -21,7 +22,13 @@
     <header class="site-header" aria-label="Site header">
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="Plumbing Match Hub home">
-          <span class="brand-mark">PM</span>
+          <span class="brand-mark" aria-hidden="true"
+            ><span class="brand-glyph"></span
+          ></span>
+          <span class="brand-text">
+            <span class="brand-name">Plumbing Match Hub</span>
+            <span class="brand-tagline">Local Plumbing Connections</span>
+          </span>
         </a>
 
         <nav class="desktop-nav" aria-label="Primary navigation">
@@ -88,12 +95,23 @@
       <section class="hero home-hero" aria-label="Plumbing lead request hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <span class="badge">Local Plumbing Connections</span>
-            <h1>Connect With Local Plumbers for Fast Home Service Requests</h1>
+            <button class="brand-search-trigger hero-search-trigger" type="button" data-hero-search-trigger>
+              <span class="brand-search-trigger__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="6.5"></circle>
+                  <path d="M16.2 16.2 21 21"></path>
+                </svg>
+              </span>
+              <span class="brand-search-trigger__text">
+                <span class="brand-search-trigger__label">Quick Search</span>
+                <span class="brand-search-trigger__value">Find a service or page</span>
+              </span>
+            </button>
+            <h1>Connect With Local Plumbing Contractors Without Calling Around All Day</h1>
             <p class="lead">
-              Plumbing Match Hub helps homeowners compare response options and
-              connect with independent local plumbing contractors for urgent and
-              non-urgent issues.
+              Plumbing Match Hub gives homeowners one place to describe a plumbing issue,
+              request quotes, and connect with independent local contractors for urgent calls
+              and planned residential work.
             </p>
 
             <div class="hero-feature-layout">
@@ -109,25 +127,22 @@
                       data-carousel-slide
                     >
                       <p>
-                        Fast local contractor matching for common residential
-                        plumbing issues
+                        Describe the issue once and get routed toward local plumbing options.
                       </p>
                     </article>
                     <article class="hero-feature-slide" data-carousel-slide>
                       <p>
-                        Emergency request options available for urgent
-                        situations
+                        Helpful for emergency leaks, drain backups, and sudden water-heater trouble.
                       </p>
                     </article>
                     <article class="hero-feature-slide" data-carousel-slide>
                       <p>
-                        Simple estimate request process designed for homeowners
+                        Compare quote requests for repairs, replacements, and installation projects.
                       </p>
                     </article>
                     <article class="hero-feature-slide" data-carousel-slide>
                       <p>
-                        Helpful support for repairs, installation, replacement,
-                        and diagnostics
+                        Built for homeowners who want a faster first step and clearer expectations.
                       </p>
                     </article>
                   </div>
@@ -212,8 +227,7 @@
           >
             <h2>Start Your Plumbing Request</h2>
             <p class="form-helper">
-              Share your details and we will help route your request to local
-              service providers in your area.
+              A clear request helps local contractors understand the problem before they reach out.
             </p>
             <form class="lead-form" data-lead-form novalidate>
               <div class="form-row">
@@ -280,8 +294,7 @@
                 Submit Request
               </button>
               <p class="form-helper">
-                By submitting, you authorize contact about your request. Message
-                and data rates may apply.
+                By submitting, you authorize contact about your request. Message and data rates may apply.
               </p>
               <div
                 class="form-success"
@@ -297,12 +310,12 @@
       <section class="trust-bar" aria-label="Trust points">
         <div class="container">
           <ul class="trust-list">
-            <li>Fast Local Matching</li>
-            <li>Emergency Help Available</li>
-            <li>Residential Plumbing Support</li>
-            <li>Local Contractor Network</li>
-            <li>Transparent Estimate Requests</li>
-            <li>Reliable Service Connections</li>
+            <li>Homeowner-Focused Request Flow</li>
+            <li>Fast Local Follow-Up Options</li>
+            <li>Emergency and Scheduled Requests</li>
+            <li>Residential-Only Plumbing Categories</li>
+            <li>Clear Quote Request Routing</li>
+            <li>Independent Contractor Network</li>
           </ul>
         </div>
       </section>
@@ -317,21 +330,21 @@
             <span class="badge">Service Categories</span>
             <h2>Explore Plumbing Services Homeowners Request Most</h2>
             <p>
-              Browse common service categories and find the right path for your
-              situation.
+              Each category is built around how homeowners actually search for help,
+              whether the issue is urgent damage, a recurring nuisance, or a planned upgrade.
             </p>
           </div>
           <div class="card-grid service-grid">
             <article class="service-card">
               <h3>Emergency Plumbing</h3>
-              <p>Urgent leaks, bursts, and overflows.</p>
+              <p>Burst pipes, active leaks, overflows, and urgent shutoff situations.</p>
               <a class="btn btn-ghost" href="services/emergency-plumbing.html"
                 >View Service</a
               >
             </article>
             <article class="service-card">
               <h3>Plumbing Repairs &amp; Maintenance</h3>
-              <p>Recurring issues and routine checks.</p>
+              <p>Drips, low pressure, running toilets, and routine repair lists.</p>
               <a
                 class="btn btn-ghost"
                 href="services/plumbing-repairs-maintenance.html"
@@ -340,21 +353,21 @@
             </article>
             <article class="service-card">
               <h3>Drain Cleaning</h3>
-              <p>Slow drains and recurring clogs.</p>
+              <p>Kitchen, bath, and line-related clogs, odors, and backups.</p>
               <a class="btn btn-ghost" href="services/drain-cleaning.html"
                 >View Service</a
               >
             </article>
             <article class="service-card">
               <h3>Plumbing Replacement</h3>
-              <p>Worn fixtures and aging components.</p>
+              <p>Aging fixtures, worn piping, failing toilets, and outdated components.</p>
               <a class="btn btn-ghost" href="services/plumbing-replacement.html"
                 >View Service</a
               >
             </article>
             <article class="service-card">
               <h3>Plumbing Installation</h3>
-              <p>Fixture installs and home updates.</p>
+              <p>New fixtures, appliance hookups, and remodel-related plumbing work.</p>
               <a
                 class="btn btn-ghost"
                 href="services/plumbing-installation.html"
@@ -363,7 +376,7 @@
             </article>
             <article class="service-card">
               <h3>Water Heater Services</h3>
-              <p>Hot water issues and replacement planning.</p>
+              <p>No hot water, leaking tanks, inconsistent heating, and quote planning.</p>
               <a
                 class="btn btn-ghost"
                 href="services/water-heater-services.html"
@@ -372,14 +385,14 @@
             </article>
             <article class="service-card">
               <h3>Leak Detection</h3>
-              <p>Hidden moisture and leak source checks.</p>
+              <p>Hidden moisture, rising water bills, ceiling stains, and mystery leaks.</p>
               <a class="btn btn-ghost" href="services/leak-detection.html"
                 >View Service</a
               >
             </article>
             <article class="service-card">
               <h3>Toilet Repair &amp; Installation</h3>
-              <p>Toilet leaks, clogs, and replacement.</p>
+              <p>Weak flushing, leaks at the base, repeated clogs, and toilet upgrades.</p>
               <a
                 class="btn btn-ghost"
                 href="services/toilet-repair-installation.html"
@@ -388,7 +401,7 @@
             </article>
             <article class="service-card">
               <h3>Faucet &amp; Fixture Services</h3>
-              <p>Kitchen and bath fixture updates.</p>
+              <p>Dripping faucets, shower fixtures, and kitchen or bath updates.</p>
               <a
                 class="btn btn-ghost"
                 href="services/faucet-fixture-services.html"
@@ -403,28 +416,31 @@
         <div class="container">
           <div class="section-header">
             <span class="badge">How It Works</span>
-            <h2>A Straightforward 4-Step Connection Process</h2>
+            <h2>How Homeowners Usually Use Plumbing Match Hub</h2>
+            <p>
+              The platform is built to reduce back-and-forth and help you get to the right local conversation faster.
+            </p>
           </div>
           <div class="card-grid steps-grid">
             <article class="step-card">
               <span class="step-number">1</span>
-              <h3>Tell us about your issue</h3>
-              <p>Share details and ZIP Code.</p>
+              <h3>Tell us what is happening</h3>
+              <p>Describe the symptom, location, and urgency of the plumbing issue.</p>
             </article>
             <article class="step-card">
               <span class="step-number">2</span>
-              <h3>Connect with local contractors</h3>
-              <p>Independent providers receive your request.</p>
+              <h3>We route the request</h3>
+              <p>Your information is matched to relevant local contractor categories.</p>
             </article>
             <article class="step-card">
               <span class="step-number">3</span>
-              <h3>Review options</h3>
-              <p>Compare contact and estimate details.</p>
+              <h3>Review your options</h3>
+              <p>Choose whether to respond to call, quote, or scheduling follow-up.</p>
             </article>
             <article class="step-card">
               <span class="step-number">4</span>
-              <h3>Move forward faster</h3>
-              <p>Choose the provider that fits your needs.</p>
+              <h3>Pick the right fit</h3>
+              <p>Move forward with the independent provider that fits your home and timeline.</p>
             </article>
           </div>
         </div>
@@ -437,8 +453,11 @@
             <h2>
               Common Residential Plumbing Projects Homeowners Often Request
             </h2>
+            <p>
+              These examples reflect the kinds of household plumbing jobs people commonly ask about through the platform.
+            </p>
           </div>
-          <div class="card-grid gallery-grid">
+          <div class="card-grid gallery-grid" data-project-slider>
             <article class="project-card">
               <img
                 src="images/home/kitchen-repeir.jpg"
@@ -448,7 +467,7 @@
               />
               <div class="project-content">
                 <h3>Kitchen Sink Drain and Faucet Updates</h3>
-                <p>Clog removal, leak checks, and faucet updates.</p>
+                <p>Often requested for leaks under the sink, clog issues, and worn kitchen fixtures.</p>
               </div>
             </article>
             <article class="project-card">
@@ -458,7 +477,7 @@
               />
               <div class="project-content">
                 <h3>Water Heater Troubleshooting and Replacement</h3>
-                <p>Common hot-water reliability requests.</p>
+                <p>Common when a home has no hot water, a leaking tank, or an aging heater.</p>
               </div>
             </article>
             <article class="project-card">
@@ -469,7 +488,7 @@
               />
               <div class="project-content">
                 <h3>Bathroom Fixture Repair and Installation</h3>
-                <p>Toilet and fixture requests tied to leaks and wear.</p>
+                <p>Frequently requested for leaking faucets, toilet issues, and bathroom refresh projects.</p>
               </div>
             </article>
           </div>
@@ -481,50 +500,79 @@
           <div class="section-header">
             <span class="badge">FAQ</span>
             <h2>Frequently Asked Questions</h2>
+            <p>
+              These answers explain how the platform works before you submit a request.
+            </p>
           </div>
           <div class="faq-list">
-            <article class="faq-item" data-faq-item>
+                        <article class="faq-item" data-faq-item>
               <button
                 class="faq-question"
                 data-faq-button
                 aria-expanded="false"
               >
-                Is Plumbing Match Hub a plumbing company?<span data-faq-icon
-                  >+</span
-                >
+                Is Plumbing Match Hub a plumbing company?<span data-faq-icon>+</span>
               </button>
               <div class="faq-answer">
                 <p>
-                  No. It is a referral platform that connects homeowners with
-                  independent local providers.
+                  No. Plumbing Match Hub is a referral platform that helps homeowners connect with independent local plumbing contractors.
                 </p>
               </div>
             </article>
-            <article class="faq-item" data-faq-item>
+                        <article class="faq-item" data-faq-item>
               <button
                 class="faq-question"
                 data-faq-button
                 aria-expanded="false"
               >
-                How fast can I get connected?<span data-faq-icon>+</span>
+                Can I use the site if I am not sure which service I need?<span data-faq-icon>+</span>
               </button>
               <div class="faq-answer">
                 <p>
-                  Urgent requests are prioritized based on local contractor
-                  availability.
+                  Yes. Describe the symptoms in plain language. You do not need a perfect diagnosis to submit a request.
                 </p>
               </div>
             </article>
-            <article class="faq-item" data-faq-item>
+                        <article class="faq-item" data-faq-item>
               <button
                 class="faq-question"
                 data-faq-button
                 aria-expanded="false"
               >
-                Is request submission free?<span data-faq-icon>+</span>
+                How quickly can someone respond to an emergency request?<span data-faq-icon>+</span>
               </button>
               <div class="faq-answer">
-                <p>Yes. Submitting a request is free for homeowners.</p>
+                <p>
+                  Response timing depends on local contractor availability, time of day, and the details of the problem. Calling is often the fastest option for urgent issues.
+                </p>
+              </div>
+            </article>
+                        <article class="faq-item" data-faq-item>
+              <button
+                class="faq-question"
+                data-faq-button
+                aria-expanded="false"
+              >
+                Can I request quotes for planned plumbing upgrades?<span data-faq-icon>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes. Homeowners use the platform for both urgent problems and planned work such as fixture upgrades, replacements, and installations.
+                </p>
+              </div>
+            </article>
+                        <article class="faq-item" data-faq-item>
+              <button
+                class="faq-question"
+                data-faq-button
+                aria-expanded="false"
+              >
+                Is submitting a request free?<span data-faq-icon>+</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Yes. Homeowners can submit a request through the platform at no charge.
+                </p>
               </div>
             </article>
           </div>
@@ -536,8 +584,7 @@
           <div class="cta-band">
             <h2>Need Plumbing Help Without the Guesswork?</h2>
             <p>
-              Call now or request quotes to connect with local independent
-              plumbing professionals in your area.
+              Call now or request quotes to connect with local independent plumbing contractors that fit the problem you are dealing with.
             </p>
             <div class="cta-actions">
               <a class="btn btn-primary" href="tel:+15552147832"
@@ -556,7 +603,13 @@
       <div class="container footer-top">
         <section class="footer-brand">
           <a class="brand" href="index.html"
-            ><span class="brand-mark">PM</span></a
+            ><span class="brand-mark" aria-hidden="true"
+              ><span class="brand-glyph"></span
+            ></span>
+            <span class="brand-text">
+              <span class="brand-name">Plumbing Match Hub</span>
+              <span class="brand-tagline">Local Plumbing Connections</span>
+            </span></a
           >
           <p>
             Homeowner-focused plumbing referral platform connecting requests
@@ -564,7 +617,7 @@
           </p>
           <p>
             SRP Group s.r.o.<br />
-            Pri smaltovni 3603/4, 851 01 Bratislava, Slovak Republic<br />
+            1847 Harbor View Lane, Tampa, FL 33602, United States<br />
             Company No.: 53 514 521
           </p>
         </section>

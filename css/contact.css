@@ -1,7 +1,7 @@
 .contact-hero {
   background:
-    linear-gradient(145deg, rgba(13, 47, 87, 0.97), rgba(20, 82, 137, 0.9)),
-    url("../images/contact/contact-support.svg") center / cover no-repeat;
+    linear-gradient(145deg, rgba(13, 47, 87, 0.86), rgba(20, 82, 137, 0.72)),
+    url("../images/contact/contact-hero.jpg") center 34% / cover no-repeat;
 }
 
 .contact-grid {
