@@ -1,7 +1,8 @@
 .legal-hero {
   background:
-    linear-gradient(145deg, rgba(13, 47, 87, 0.97), rgba(22, 79, 132, 0.9)),
-    url("../images/legal/legal-documents.svg") center / cover no-repeat;
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.12), transparent 22%),
+    radial-gradient(circle at 82% 28%, rgba(239, 123, 45, 0.18), transparent 24%),
+    linear-gradient(145deg, rgba(13, 47, 87, 0.97), rgba(22, 79, 132, 0.9));
 }
 
 .legal-content {
@@ -10,6 +11,10 @@
   border: 1px solid rgba(13, 47, 87, 0.09);
   box-shadow: 0 10px 24px rgba(10, 39, 74, 0.08);
   padding: 1.5rem;
+  transition:
+    transform var(--ease),
+    box-shadow var(--ease),
+    border-color var(--ease);
 }
 
 .legal-content h2 {

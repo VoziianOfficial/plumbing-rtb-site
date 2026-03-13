@@ -21,6 +21,10 @@
   border: 1px solid rgba(13, 47, 87, 0.09);
   box-shadow: 0 8px 18px rgba(10, 39, 74, 0.08);
   padding: 1rem;
+  transition:
+    transform var(--ease),
+    box-shadow var(--ease),
+    border-color var(--ease);
 }
 
 .contact-info-card h3 {
@@ -37,6 +41,10 @@
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(13, 47, 87, 0.12);
+  transition:
+    transform var(--ease),
+    box-shadow var(--ease),
+    border-color var(--ease);
 }
 
 .map-embed {

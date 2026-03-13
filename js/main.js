@@ -347,7 +347,10 @@
       });
 
       document.querySelectorAll(".btn").forEach((button) => {
-        if (button.classList.contains("btn-primary")) {
+        if (
+          button.classList.contains("btn-primary") ||
+          button.hasAttribute("data-no-button-icon")
+        ) {
           button.querySelectorAll(".btn-icon").forEach((icon) => icon.remove());
           button.dataset.iconized = "true";
           return;
@@ -555,13 +558,12 @@
       }
     };
 
-    if (getConsentValue() === "accepted") return;
+    if (["accepted", "essential"].includes(getConsentValue())) return;
 
     const consentDialog = document.createElement("div");
     consentDialog.className = "site-consent";
     consentDialog.setAttribute("data-site-consent", "");
-    consentDialog.setAttribute("role", "dialog");
-    consentDialog.setAttribute("aria-modal", "true");
+    consentDialog.setAttribute("role", "region");
     consentDialog.setAttribute("aria-labelledby", "siteConsentTitle");
     consentDialog.setAttribute("aria-describedby", "siteConsentDescription");
 
@@ -572,64 +574,57 @@
         <h2 id="siteConsentTitle">Before You Continue</h2>
         <p class="site-consent__description" id="siteConsentDescription">
           Plumbing Match Hub routes homeowner requests to independent local plumbing contractors.
-          By clicking "I Agree," you confirm that you reviewed how request information may be used
-          and shared under our privacy and site policies.
+          Review the policies below first if needed. You can then allow full consent
+          or continue with essential-only site storage.
         </p>
         <div class="site-consent__links" aria-label="Policy links">
-          <a class="site-consent__link" href="${basePath}privacy-policy.html">Privacy Policy</a>
-          <a class="site-consent__link" href="${basePath}terms-of-service.html">Terms of Service</a>
-          <a class="site-consent__link" href="${basePath}cookie-policy.html">Cookie Policy</a>
+          <a
+            class="site-consent__link"
+            href="${basePath}privacy-policy.html"
+          >Privacy Policy</a>
+          <a
+            class="site-consent__link"
+            href="${basePath}terms-of-service.html"
+          >Terms of Service</a>
+          <a
+            class="site-consent__link"
+            href="${basePath}cookie-policy.html"
+          >Cookie Policy</a>
         </div>
+        <p class="site-consent__note">
+          You can open any policy page first. This notice stays visible on every
+          page until you choose Accept All or Essential Only.
+        </p>
         <div class="site-consent__actions">
-          <button class="btn btn-primary" type="button" data-consent-accept>I Agree</button>
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-consent-essential
+            data-no-button-icon
+          >
+            Essential Only
+          </button>
+          <button class="btn btn-primary" type="button" data-consent-accept>Accept All</button>
         </div>
       </div>
     `;
 
     const acceptButton = consentDialog.querySelector("[data-consent-accept]");
-    const focusableSelector =
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-    const previousFocus = document.activeElement;
+    const essentialButton = consentDialog.querySelector("[data-consent-essential]");
+    essentialButton
+      ?.querySelectorAll(".btn-icon, .material-symbols-outlined")
+      .forEach((icon) => icon.remove());
 
-    const closeConsent = () => {
-      setConsentValue("accepted");
+    const closeConsent = (value) => {
+      setConsentValue(value);
       document.body.classList.remove("consent-open");
       consentDialog.remove();
-
-      if (previousFocus && typeof previousFocus.focus === "function") {
-        previousFocus.focus();
-      }
     };
-
-    const handleKeydown = (event) => {
-      if (event.key !== "Tab") return;
-
-      const focusableElements = Array.from(
-        consentDialog.querySelectorAll(focusableSelector)
-      ).filter((element) => !element.hasAttribute("disabled"));
-
-      if (!focusableElements.length) return;
-
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
-
-      if (event.shiftKey && document.activeElement === firstElement) {
-        event.preventDefault();
-        lastElement.focus();
-      } else if (!event.shiftKey && document.activeElement === lastElement) {
-        event.preventDefault();
-        firstElement.focus();
-      }
-    };
-
-    consentDialog.addEventListener("keydown", handleKeydown);
-    acceptButton?.addEventListener("click", closeConsent);
+    acceptButton?.addEventListener("click", () => closeConsent("accepted"));
+    essentialButton?.addEventListener("click", () => closeConsent("essential"));
 
     document.body.append(consentDialog);
     document.body.classList.add("consent-open");
-    window.requestAnimationFrame(() => {
-      acceptButton?.focus();
-    });
   };
 
   const initializeHeaderSearch = () => {
