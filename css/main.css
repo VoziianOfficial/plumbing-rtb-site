@@ -1186,13 +1186,52 @@ button.btn {
 .trust-bar {
   background: var(--color-white);
   border-block: 1px solid rgba(13, 47, 87, 0.08);
+  overflow: hidden;
+}
+
+.trust-bar__viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-bar__viewport::before,
+.trust-bar__viewport::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(2rem, 5vw, 4rem);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.trust-bar__viewport::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-white), rgba(255, 255, 255, 0));
+}
+
+.trust-bar__viewport::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--color-white), rgba(255, 255, 255, 0));
+}
+
+.trust-bar__track {
+  display: flex;
+  width: max-content;
+  animation: trustBarMarquee 30s linear infinite;
+}
+
+.trust-bar:hover .trust-bar__track {
+  animation-play-state: paused;
 }
 
 .trust-list {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex: 0 0 auto;
+  min-width: max-content;
+  padding: 0.95rem 1rem 0.95rem 0;
 }
 
 .trust-list li {
@@ -1201,10 +1240,49 @@ button.btn {
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  white-space: nowrap;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(13, 47, 87, 0.08);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffffff, #f6fbff);
+  box-shadow: 0 10px 22px rgba(9, 38, 74, 0.06);
 }
 
 .trust-list li::before {
   content: none;
+}
+
+@keyframes trustBarMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-bar__viewport::before,
+  .trust-bar__viewport::after {
+    display: none;
+  }
+
+  .trust-bar__track {
+    width: 100%;
+    animation: none;
+    flex-wrap: wrap;
+  }
+
+  .trust-list {
+    min-width: 0;
+    flex-wrap: wrap;
+    padding-right: 0;
+  }
+
+  .trust-list[aria-hidden="true"] {
+    display: none;
+  }
 }
 
 .card-grid {

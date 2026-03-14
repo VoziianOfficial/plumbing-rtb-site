@@ -224,99 +224,128 @@
             class="hero-form-wrap"
             id="hero-form"
             aria-label="Estimate request form"
+            data-mobile-hero-form
           >
-            <h2>Start Your Plumbing Request</h2>
-            <p class="form-helper">
-              A clear request helps local contractors understand the problem before they reach out.
-            </p>
-            <form class="lead-form" data-lead-form novalidate>
-              <div class="form-row">
-                <label for="home-full-name">Full Name</label>
-                <input
-                  id="home-full-name"
-                  name="fullName"
-                  type="text"
-                  autocomplete="name"
-                  required
-                />
-                <span class="field-error" data-error></span>
-              </div>
-              <div class="form-row">
-                <label for="home-phone">Phone Number</label>
-                <input
-                  id="home-phone"
-                  name="phoneNumber"
-                  type="tel"
-                  autocomplete="tel"
-                  placeholder="(555) 555-5555"
-                  required
-                />
-                <span class="field-error" data-error></span>
-              </div>
-              <div class="form-row">
-                <label for="home-zip">ZIP Code</label>
-                <input
-                  id="home-zip"
-                  name="zipCode"
-                  type="text"
-                  inputmode="numeric"
-                  autocomplete="postal-code"
-                  required
-                />
-                <span class="field-error" data-error></span>
-              </div>
-              <div class="form-row">
-                <label for="home-service">Service Needed</label>
-                <select id="home-service" name="serviceNeeded" required>
-                  <option value="">Select a service</option>
-                  <option>Emergency Plumbing</option>
-                  <option>Plumbing Repairs &amp; Maintenance</option>
-                  <option>Drain Cleaning</option>
-                  <option>Plumbing Replacement</option>
-                  <option>Plumbing Installation</option>
-                  <option>Water Heater Services</option>
-                  <option>Leak Detection</option>
-                  <option>Toilet Repair &amp; Installation</option>
-                  <option>Faucet &amp; Fixture Services</option>
-                </select>
-                <span class="field-error" data-error></span>
-              </div>
-              <div class="form-row">
-                <label for="home-message">Optional Message</label>
-                <textarea
-                  id="home-message"
-                  name="message"
-                  placeholder="Briefly describe what is happening"
-                ></textarea>
-                <span class="field-error" data-error></span>
-              </div>
-              <button class="btn btn-primary" type="submit">
-                Submit Request
-              </button>
+            <button
+              class="hero-form-toggle"
+              type="button"
+              data-hero-form-toggle
+              aria-expanded="false"
+              aria-controls="hero-form-panel"
+            >
+              <span class="hero-form-toggle__copy">
+                <span class="hero-form-toggle__eyebrow">Quick Request</span>
+                <span class="hero-form-toggle__title">Start Your Plumbing Request</span>
+                <span class="hero-form-toggle__hint">Tap to open the short form</span>
+              </span>
+              <span class="hero-form-toggle__icon" data-hero-form-toggle-icon aria-hidden="true">+</span>
+            </button>
+            <div class="hero-form-panel" id="hero-form-panel" data-hero-form-panel>
+              <h2>Start Your Plumbing Request</h2>
               <p class="form-helper">
-                By submitting, you authorize contact about your request. Message and data rates may apply.
+                A clear request helps local contractors understand the problem before they reach out.
               </p>
-              <div
-                class="form-success"
-                data-form-success
-                role="status"
-                aria-live="polite"
-              ></div>
-            </form>
+              <form class="lead-form" data-lead-form novalidate>
+                <div class="form-row">
+                  <label for="home-full-name">Full Name</label>
+                  <input
+                    id="home-full-name"
+                    name="fullName"
+                    type="text"
+                    autocomplete="name"
+                    required
+                  />
+                  <span class="field-error" data-error></span>
+                </div>
+                <div class="form-row">
+                  <label for="home-phone">Phone Number</label>
+                  <input
+                    id="home-phone"
+                    name="phoneNumber"
+                    type="tel"
+                    autocomplete="tel"
+                    placeholder="(555) 555-5555"
+                    required
+                  />
+                  <span class="field-error" data-error></span>
+                </div>
+                <div class="form-row">
+                  <label for="home-zip">ZIP Code</label>
+                  <input
+                    id="home-zip"
+                    name="zipCode"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="postal-code"
+                    required
+                  />
+                  <span class="field-error" data-error></span>
+                </div>
+                <div class="form-row">
+                  <label for="home-service">Service Needed</label>
+                  <select id="home-service" name="serviceNeeded" required>
+                    <option value="">Select a service</option>
+                    <option>Emergency Plumbing</option>
+                    <option>Plumbing Repairs &amp; Maintenance</option>
+                    <option>Drain Cleaning</option>
+                    <option>Plumbing Replacement</option>
+                    <option>Plumbing Installation</option>
+                    <option>Water Heater Services</option>
+                    <option>Leak Detection</option>
+                    <option>Toilet Repair &amp; Installation</option>
+                    <option>Faucet &amp; Fixture Services</option>
+                  </select>
+                  <span class="field-error" data-error></span>
+                </div>
+                <div class="form-row">
+                  <label for="home-message">Optional Message</label>
+                  <textarea
+                    id="home-message"
+                    name="message"
+                    placeholder="Briefly describe what is happening"
+                  ></textarea>
+                  <span class="field-error" data-error></span>
+                </div>
+                <button class="btn btn-primary" type="submit">
+                  Submit Request
+                </button>
+                <p class="form-helper">
+                  By submitting, you authorize contact about your request. Message and data rates may apply.
+                </p>
+                <div
+                  class="form-success"
+                  data-form-success
+                  role="status"
+                  aria-live="polite"
+                ></div>
+              </form>
+            </div>
           </aside>
         </div>
       </section>
 
       <section class="trust-bar" aria-label="Trust points">
         <div class="container">
-          <ul class="trust-list">
-            <li>Homeowner-Focused Request Flow</li>
-            <li>Fast Local Follow-Up Options</li>
-            <li>Emergency and Scheduled Requests</li>
-            <li>Residential-Only Plumbing Categories</li>
-            <li>Clear Quote Request Routing</li>
-            <li>Independent Contractor Network</li>
-          </ul>
+          <div class="trust-bar__viewport">
+            <div class="trust-bar__track">
+              <ul class="trust-list">
+                <li>Homeowner-Focused Request Flow</li>
+                <li>Fast Local Follow-Up Options</li>
+                <li>Emergency and Scheduled Requests</li>
+                <li>Residential-Only Plumbing Categories</li>
+                <li>Clear Quote Request Routing</li>
+                <li>Independent Contractor Network</li>
+              </ul>
+              <ul class="trust-list" aria-hidden="true">
+                <li>Homeowner-Focused Request Flow</li>
+                <li>Fast Local Follow-Up Options</li>
+                <li>Emergency and Scheduled Requests</li>
+                <li>Residential-Only Plumbing Categories</li>
+                <li>Clear Quote Request Routing</li>
+                <li>Independent Contractor Network</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

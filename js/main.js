@@ -394,7 +394,7 @@
       { selector: ".content-grid > aside", animation: "fade-left", delayStep: 80 },
       { selector: ".split-layout > article", animation: "fade-right", delayStep: 0 },
       { selector: ".split-layout > aside", animation: "fade-left", delayStep: 80 },
-      { selector: ".trust-list li", animation: "zoom-in", delayStep: 60 },
+      { selector: ".trust-bar", animation: "fade-up", delayStep: 0 },
       { selector: ".service-card", animation: "fade-up", delayStep: 75 },
       { selector: ".step-card", animation: "fade-up", delayStep: 85 },
       { selector: ".project-card", animation: "fade-up", delayStep: 100 },
@@ -852,10 +852,67 @@
     updateFloatingSearch();
   };
 
+  const initializeMobileHeroForm = () => {
+    const formWrap = document.querySelector("[data-mobile-hero-form]");
+    if (!formWrap) return;
+
+    const toggle = formWrap.querySelector("[data-hero-form-toggle]");
+    const toggleIcon = formWrap.querySelector("[data-hero-form-toggle-icon]");
+    const panel = formWrap.querySelector("[data-hero-form-panel]");
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+
+    if (!toggle || !panel) return;
+
+    let userInteracted = false;
+    let isExpanded = false;
+
+    const renderMobileState = (expanded) => {
+      isExpanded = expanded;
+      toggle.setAttribute("aria-expanded", String(expanded));
+      formWrap.dataset.mobileExpanded = String(expanded);
+      panel.hidden = !expanded;
+
+      if (toggleIcon) {
+        toggleIcon.textContent = expanded ? "-" : "+";
+      }
+    };
+
+    const syncFormState = () => {
+      if (mobileQuery.matches) {
+        renderMobileState(userInteracted ? isExpanded : false);
+        return;
+      }
+
+      panel.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+      formWrap.dataset.mobileExpanded = "true";
+
+      if (toggleIcon) {
+        toggleIcon.textContent = "-";
+      }
+    };
+
+    toggle.addEventListener("click", () => {
+      if (!mobileQuery.matches) return;
+
+      userInteracted = true;
+      renderMobileState(!isExpanded);
+    });
+
+    if (typeof mobileQuery.addEventListener === "function") {
+      mobileQuery.addEventListener("change", syncFormState);
+    } else if (typeof mobileQuery.addListener === "function") {
+      mobileQuery.addListener(syncFormState);
+    }
+
+    syncFormState();
+  };
+
   enhanceInterfaceWithIcons();
   initializeHeaderSearch();
   initializeHeroSearchTrigger();
   initializeFloatingSearchTrigger();
+  initializeMobileHeroForm();
   initializePrivacyConsent();
   initializeServiceHeroMotion();
   addFloatingAccents();
