@@ -219,6 +219,115 @@
     startAuto();
   });
 
+  const serviceSwipers = document.querySelectorAll("[data-service-swiper]");
+  serviceSwipers.forEach((section) => {
+    const track = section.querySelector("[data-service-swiper-track]");
+    const pagination = section.querySelector("[data-service-swiper-pagination]");
+    const cards = Array.from(track?.querySelectorAll(".service-card") || []);
+    const mobileQuery = window.matchMedia("(max-width: 768px)");
+
+    if (!track || !pagination || !cards.length) return;
+
+    let dots = [];
+    let activeIndex = 0;
+    let scrollFrame = 0;
+
+    const getCardTitle = (card, fallbackIndex) =>
+      card.querySelector("h3")?.textContent?.trim() || `Service ${fallbackIndex + 1}`;
+
+    const renderDots = () => {
+      if (dots.length) return;
+
+      dots = cards.map((card, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "services-showcase__pagination-dot";
+        dot.setAttribute("aria-label", `Go to ${getCardTitle(card, index)}`);
+        dot.setAttribute("aria-selected", "false");
+
+        dot.addEventListener("click", () => {
+          const left = card.offsetLeft - track.offsetLeft;
+          track.scrollTo({
+            left,
+            behavior: mobileQuery.matches ? "smooth" : "auto",
+          });
+          setActiveDot(index);
+        });
+
+        pagination.append(dot);
+        return dot;
+      });
+    };
+
+    const setActiveDot = (index) => {
+      activeIndex = index;
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === index;
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-selected", String(isActive));
+      });
+    };
+
+    const getNearestCardIndex = () => {
+      const currentLeft = track.scrollLeft;
+      let nearestIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      cards.forEach((card, index) => {
+        const offset = card.offsetLeft - track.offsetLeft;
+        const distance = Math.abs(currentLeft - offset);
+
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+
+      return nearestIndex;
+    };
+
+    const syncActiveDot = () => {
+      scrollFrame = 0;
+      setActiveDot(getNearestCardIndex());
+    };
+
+    track.addEventListener(
+      "scroll",
+      () => {
+        if (!mobileQuery.matches) return;
+        if (scrollFrame) return;
+        scrollFrame = window.requestAnimationFrame(syncActiveDot);
+      },
+      { passive: true }
+    );
+
+    const handleViewportChange = () => {
+      if (scrollFrame) {
+        window.cancelAnimationFrame(scrollFrame);
+        scrollFrame = 0;
+      }
+
+      if (!mobileQuery.matches) {
+        track.scrollLeft = 0;
+        setActiveDot(0);
+        return;
+      }
+
+      setActiveDot(getNearestCardIndex());
+    };
+
+    renderDots();
+    handleViewportChange();
+
+    if (typeof mobileQuery.addEventListener === "function") {
+      mobileQuery.addEventListener("change", handleViewportChange);
+    } else if (typeof mobileQuery.addListener === "function") {
+      mobileQuery.addListener(handleViewportChange);
+    }
+
+    window.addEventListener("resize", handleViewportChange);
+  });
+
   const loadStylesheet = (href) => {
     if (document.querySelector(`link[href="${href}"]`)) {
       return Promise.resolve();
@@ -329,18 +438,6 @@
       document.querySelectorAll(".badge").forEach((badge) => {
         prependIcon(badge, iconNameForText(badge.textContent, "check_circle"), "badge-icon");
       });
-
-      document
-        .querySelectorAll(
-          ".service-card h3, .related-card h3, .info-card h3, .problem-card h3, .project-card h3, .contact-info-card h3, .callout h3, .footer-links h3, .footer-contact h3"
-        )
-        .forEach((heading) => {
-          prependIcon(
-            heading,
-            iconNameForText(heading.textContent, "plumbing"),
-            "heading-icon"
-          );
-        });
 
       document.querySelectorAll(".trust-list li").forEach((item) => {
         prependIcon(item, iconNameForText(item.textContent, "verified"), "trust-icon");
@@ -852,57 +949,115 @@
     updateFloatingSearch();
   };
 
-  const initializeMobileHeroForm = () => {
+  const initializeResponsiveHeroForm = () => {
     const formWrap = document.querySelector("[data-mobile-hero-form]");
     if (!formWrap) return;
 
     const toggle = formWrap.querySelector("[data-hero-form-toggle]");
     const toggleIcon = formWrap.querySelector("[data-hero-form-toggle-icon]");
+    const toggleHint = formWrap.querySelector("[data-hero-form-toggle-hint]");
     const panel = formWrap.querySelector("[data-hero-form-panel]");
+    const advancedToggle = formWrap.querySelector("[data-hero-form-advanced-toggle]");
+    const advancedSection = formWrap.querySelector("[data-hero-form-advanced]");
     const mobileQuery = window.matchMedia("(max-width: 768px)");
+    const desktopQuery = window.matchMedia("(min-width: 960px)");
 
     if (!toggle || !panel) return;
 
-    let userInteracted = false;
-    let isExpanded = false;
+    const compactExpanded = {
+      mobile: false,
+      tablet: false,
+    };
+    let desktopAdvancedExpanded = false;
 
-    const renderMobileState = (expanded) => {
-      isExpanded = expanded;
+    const getFormMode = () => {
+      if (desktopQuery.matches) return "desktop";
+      if (mobileQuery.matches) return "mobile";
+      return "tablet";
+    };
+
+    const renderState = (mode, expanded) => {
       toggle.setAttribute("aria-expanded", String(expanded));
-      formWrap.dataset.mobileExpanded = String(expanded);
+      formWrap.dataset.heroFormMode = mode;
+      formWrap.dataset.heroFormExpanded = String(expanded);
+      formWrap.dataset.mobileExpanded = String(mode === "mobile" ? expanded : false);
       panel.hidden = !expanded;
+      toggle.hidden = mode === "desktop";
+
+      const advancedExpanded = mode === "desktop" ? desktopAdvancedExpanded : true;
+      formWrap.dataset.heroFormAdvancedExpanded = String(advancedExpanded);
+
+      if (advancedToggle) {
+        advancedToggle.hidden = mode !== "desktop";
+        advancedToggle.setAttribute("aria-expanded", String(advancedExpanded));
+      }
+
+      if (advancedSection) {
+        const advancedHidden = mode === "desktop" ? !advancedExpanded : false;
+        advancedSection.hidden = false;
+        advancedSection.setAttribute("aria-hidden", String(advancedHidden));
+
+        if ("inert" in advancedSection) {
+          advancedSection.inert = advancedHidden;
+        }
+      }
 
       if (toggleIcon) {
         toggleIcon.textContent = expanded ? "-" : "+";
       }
+
+      if (toggleHint) {
+        toggleHint.textContent =
+          mode === "desktop"
+            ? expanded
+              ? "Click again to hide the form"
+              : "Click to expand the request form"
+            : mode === "mobile"
+              ? expanded
+                ? "Tap again to hide the form"
+                : "Tap to open the short form"
+              : expanded
+                ? "Hide the short form"
+                : "Open the short form";
+      }
     };
 
     const syncFormState = () => {
-      if (mobileQuery.matches) {
-        renderMobileState(userInteracted ? isExpanded : false);
+      const mode = getFormMode();
+
+      if (mode === "desktop") {
+        renderState(mode, true);
         return;
       }
 
-      panel.hidden = false;
-      toggle.setAttribute("aria-expanded", "true");
-      formWrap.dataset.mobileExpanded = "true";
-
-      if (toggleIcon) {
-        toggleIcon.textContent = "-";
-      }
+      renderState(mode, compactExpanded[mode]);
     };
 
     toggle.addEventListener("click", () => {
-      if (!mobileQuery.matches) return;
+      const mode = getFormMode();
+      if (mode === "desktop") return;
 
-      userInteracted = true;
-      renderMobileState(!isExpanded);
+      compactExpanded[mode] = !compactExpanded[mode];
+      renderState(mode, compactExpanded[mode]);
+    });
+
+    advancedToggle?.addEventListener("click", () => {
+      if (getFormMode() !== "desktop") return;
+
+      desktopAdvancedExpanded = !desktopAdvancedExpanded;
+      renderState("desktop", true);
     });
 
     if (typeof mobileQuery.addEventListener === "function") {
       mobileQuery.addEventListener("change", syncFormState);
     } else if (typeof mobileQuery.addListener === "function") {
       mobileQuery.addListener(syncFormState);
+    }
+
+    if (typeof desktopQuery.addEventListener === "function") {
+      desktopQuery.addEventListener("change", syncFormState);
+    } else if (typeof desktopQuery.addListener === "function") {
+      desktopQuery.addListener(syncFormState);
     }
 
     syncFormState();
@@ -912,7 +1067,7 @@
   initializeHeaderSearch();
   initializeHeroSearchTrigger();
   initializeFloatingSearchTrigger();
-  initializeMobileHeroForm();
+  initializeResponsiveHeroForm();
   initializePrivacyConsent();
   initializeServiceHeroMotion();
   addFloatingAccents();

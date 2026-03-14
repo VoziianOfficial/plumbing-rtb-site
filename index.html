@@ -183,24 +183,6 @@
                       aria-selected="false"
                     ></button>
                   </div>
-                  <div class="hero-feature-arrows">
-                    <button
-                      class="hero-feature-arrow"
-                      type="button"
-                      data-carousel-prev
-                      aria-label="Previous highlight"
-                    >
-                      &lsaquo;
-                    </button>
-                    <button
-                      class="hero-feature-arrow"
-                      type="button"
-                      data-carousel-next
-                      aria-label="Next highlight"
-                    >
-                      &rsaquo;
-                    </button>
-                  </div>
                 </div>
               </section>
 
@@ -236,7 +218,9 @@
               <span class="hero-form-toggle__copy">
                 <span class="hero-form-toggle__eyebrow">Quick Request</span>
                 <span class="hero-form-toggle__title">Start Your Plumbing Request</span>
-                <span class="hero-form-toggle__hint">Tap to open the short form</span>
+                <span class="hero-form-toggle__hint" data-hero-form-toggle-hint>
+                  Tap to open the short form
+                </span>
               </span>
               <span class="hero-form-toggle__icon" data-hero-form-toggle-icon aria-hidden="true">+</span>
             </button>
@@ -281,43 +265,57 @@
                   />
                   <span class="field-error" data-error></span>
                 </div>
-                <div class="form-row">
-                  <label for="home-service">Service Needed</label>
-                  <select id="home-service" name="serviceNeeded" required>
-                    <option value="">Select a service</option>
-                    <option>Emergency Plumbing</option>
-                    <option>Plumbing Repairs &amp; Maintenance</option>
-                    <option>Drain Cleaning</option>
-                    <option>Plumbing Replacement</option>
-                    <option>Plumbing Installation</option>
-                    <option>Water Heater Services</option>
-                    <option>Leak Detection</option>
-                    <option>Toilet Repair &amp; Installation</option>
-                    <option>Faucet &amp; Fixture Services</option>
-                  </select>
-                  <span class="field-error" data-error></span>
-                </div>
-                <div class="form-row">
-                  <label for="home-message">Optional Message</label>
-                  <textarea
-                    id="home-message"
-                    name="message"
-                    placeholder="Briefly describe what is happening"
-                  ></textarea>
-                  <span class="field-error" data-error></span>
-                </div>
-                <button class="btn btn-primary" type="submit">
-                  Submit Request
+                <button
+                  class="hero-form-advanced-toggle"
+                  type="button"
+                  data-hero-form-advanced-toggle
+                  aria-expanded="false"
+                  aria-controls="hero-form-advanced"
+                >
+                  <span>Service details and message</span>
+                  <span class="hero-form-advanced-toggle__icon" data-hero-form-advanced-icon aria-hidden="true"
+                    >+</span
+                  >
                 </button>
-                <p class="form-helper">
-                  By submitting, you authorize contact about your request. Message and data rates may apply.
-                </p>
-                <div
-                  class="form-success"
-                  data-form-success
-                  role="status"
-                  aria-live="polite"
-                ></div>
+                <div class="hero-form-advanced" id="hero-form-advanced" data-hero-form-advanced>
+                  <div class="form-row">
+                    <label for="home-service">Service Needed</label>
+                    <select id="home-service" name="serviceNeeded" required>
+                      <option value="">Select a service</option>
+                      <option>Emergency Plumbing</option>
+                      <option>Plumbing Repairs &amp; Maintenance</option>
+                      <option>Drain Cleaning</option>
+                      <option>Plumbing Replacement</option>
+                      <option>Plumbing Installation</option>
+                      <option>Water Heater Services</option>
+                      <option>Leak Detection</option>
+                      <option>Toilet Repair &amp; Installation</option>
+                      <option>Faucet &amp; Fixture Services</option>
+                    </select>
+                    <span class="field-error" data-error></span>
+                  </div>
+                  <div class="form-row">
+                    <label for="home-message">Optional Message</label>
+                    <textarea
+                      id="home-message"
+                      name="message"
+                      placeholder="Briefly describe what is happening"
+                    ></textarea>
+                    <span class="field-error" data-error></span>
+                  </div>
+                  <button class="btn btn-primary" type="submit">
+                    Submit Request
+                  </button>
+                  <p class="form-helper">
+                    By submitting, you authorize contact about your request. Message and data rates may apply.
+                  </p>
+                  <div
+                    class="form-success"
+                    data-form-success
+                    role="status"
+                    aria-live="polite"
+                  ></div>
+                </div>
               </form>
             </div>
           </aside>
@@ -350,12 +348,13 @@
       </section>
 
       <section
-        class="section"
+        class="section services-showcase"
         id="services"
         aria-label="Plumbing service categories"
+        data-service-swiper
       >
         <div class="container">
-          <div class="section-header">
+          <div class="section-header services-showcase__header">
             <span class="badge">Service Categories</span>
             <h2>Explore Plumbing Services Homeowners Request Most</h2>
             <p>
@@ -363,81 +362,130 @@
               whether the issue is urgent damage, a recurring nuisance, or a planned upgrade.
             </p>
           </div>
-          <div class="card-grid service-grid">
+          <div class="card-grid service-grid" data-service-swiper-track>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">bolt</span>
+              </span>
               <h3>Emergency Plumbing</h3>
               <p>Burst pipes, active leaks, overflows, and urgent shutoff situations.</p>
-              <a class="btn btn-ghost" href="services/emergency-plumbing.html"
-                >View Service</a
+              <a class="service-card__link" href="services/emergency-plumbing.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">home_repair_service</span>
+              </span>
               <h3>Plumbing Repairs &amp; Maintenance</h3>
               <p>Drips, low pressure, running toilets, and routine repair lists.</p>
-              <a
-                class="btn btn-ghost"
-                href="services/plumbing-repairs-maintenance.html"
-                >View Service</a
+              <a class="service-card__link" href="services/plumbing-repairs-maintenance.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">water_drop</span>
+              </span>
               <h3>Drain Cleaning</h3>
               <p>Kitchen, bath, and line-related clogs, odors, and backups.</p>
-              <a class="btn btn-ghost" href="services/drain-cleaning.html"
-                >View Service</a
+              <a class="service-card__link" href="services/drain-cleaning.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">sync_alt</span>
+              </span>
               <h3>Plumbing Replacement</h3>
               <p>Aging fixtures, worn piping, failing toilets, and outdated components.</p>
-              <a class="btn btn-ghost" href="services/plumbing-replacement.html"
-                >View Service</a
+              <a class="service-card__link" href="services/plumbing-replacement.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">construction</span>
+              </span>
               <h3>Plumbing Installation</h3>
               <p>New fixtures, appliance hookups, and remodel-related plumbing work.</p>
-              <a
-                class="btn btn-ghost"
-                href="services/plumbing-installation.html"
-                >View Service</a
+              <a class="service-card__link" href="services/plumbing-installation.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">shower</span>
+              </span>
               <h3>Water Heater Services</h3>
               <p>No hot water, leaking tanks, inconsistent heating, and quote planning.</p>
-              <a
-                class="btn btn-ghost"
-                href="services/water-heater-services.html"
-                >View Service</a
+              <a class="service-card__link" href="services/water-heater-services.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">search</span>
+              </span>
               <h3>Leak Detection</h3>
               <p>Hidden moisture, rising water bills, ceiling stains, and mystery leaks.</p>
-              <a class="btn btn-ghost" href="services/leak-detection.html"
-                >View Service</a
+              <a class="service-card__link" href="services/leak-detection.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">wc</span>
+              </span>
               <h3>Toilet Repair &amp; Installation</h3>
               <p>Weak flushing, leaks at the base, repeated clogs, and toilet upgrades.</p>
-              <a
-                class="btn btn-ghost"
-                href="services/toilet-repair-installation.html"
-                >View Service</a
+              <a class="service-card__link" href="services/toilet-repair-installation.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
             <article class="service-card">
+              <span class="service-card__icon-shell" aria-hidden="true">
+                <span class="material-symbols-outlined service-card__icon">plumbing</span>
+              </span>
               <h3>Faucet &amp; Fixture Services</h3>
               <p>Dripping faucets, shower fixtures, and kitchen or bath updates.</p>
-              <a
-                class="btn btn-ghost"
-                href="services/faucet-fixture-services.html"
-                >View Service</a
+              <a class="service-card__link" href="services/faucet-fixture-services.html"
+                ><span>View Service</span
+                ><span class="material-symbols-outlined service-card__link-icon" aria-hidden="true"
+                  >arrow_outward</span
+                ></a
               >
             </article>
           </div>
+          <div
+            class="services-showcase__pagination"
+            data-service-swiper-pagination
+            aria-label="Service carousel pagination"
+          ></div>
         </div>
       </section>
 
