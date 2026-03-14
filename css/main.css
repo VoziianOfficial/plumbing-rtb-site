@@ -15,7 +15,11 @@
   --radius-md: 16px;
   --radius-lg: 24px;
   --container: 1440px;
-  --ease: 220ms ease;
+  --ease: 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-slow: 620ms cubic-bezier(0.16, 1, 0.3, 1);
+  --page-transition-duration: 680ms;
+  --page-transition-duration-fast: 360ms;
+  --page-transition-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -32,6 +36,96 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.6;
+}
+
+body.page-transition-ready > *:not(.page-transition-overlay) {
+  transition:
+    opacity var(--page-transition-duration-fast) var(--page-transition-ease),
+    transform var(--page-transition-duration) var(--page-transition-ease),
+    filter var(--page-transition-duration) var(--page-transition-ease);
+}
+
+body.page-transition-leaving {
+  overflow: clip;
+}
+
+body.page-transition-leaving > *:not(.page-transition-overlay) {
+  opacity: 0;
+  transform: translateY(-18px) scale(0.985);
+  filter: blur(10px);
+}
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(239, 123, 45, 0.1), transparent 32%),
+    radial-gradient(circle at 82% 12%, rgba(13, 47, 87, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(243, 247, 252, 0.18), rgba(243, 247, 252, 0.88));
+  backdrop-filter: blur(0px);
+  transition:
+    opacity var(--page-transition-duration-fast) var(--page-transition-ease),
+    backdrop-filter var(--page-transition-duration) var(--page-transition-ease);
+}
+
+body.page-transition-leaving .page-transition-overlay {
+  opacity: 1;
+  backdrop-filter: blur(8px);
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: var(--page-transition-duration);
+  animation-timing-function: var(--page-transition-ease);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--page-transition-duration);
+  animation-timing-function: var(--page-transition-ease);
+  transform-origin: 50% 12%;
+}
+
+::view-transition-old(root) {
+  animation-name: page-transition-old;
+}
+
+::view-transition-new(root) {
+  animation-name: page-transition-new;
+}
+
+@keyframes page-transition-old {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.985);
+    filter: blur(10px);
+  }
+}
+
+@keyframes page-transition-new {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(1.01);
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 
 body.menu-open {
@@ -1471,10 +1565,10 @@ button.btn {
   overflow: hidden;
   isolation: isolate;
   transition:
-    transform 250ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 250ms ease,
-    border-color 250ms ease,
-    background 250ms ease;
+    transform var(--ease),
+    box-shadow var(--ease),
+    border-color var(--ease),
+    background var(--ease);
 }
 
 .services-showcase .service-card::before {
@@ -1498,8 +1592,8 @@ button.btn {
   background: radial-gradient(circle, var(--service-accent), transparent 70%);
   opacity: 0.9;
   transition:
-    transform 250ms ease,
-    opacity 250ms ease;
+    transform var(--ease),
+    opacity var(--ease);
   z-index: -1;
 }
 
@@ -1585,9 +1679,9 @@ button.btn {
     inset 0 1px 0 rgba(255, 255, 255, 0.88),
     0 10px 18px rgba(8, 36, 70, 0.08);
   transition:
-    transform 250ms ease,
-    box-shadow 250ms ease,
-    background 250ms ease;
+    transform var(--ease),
+    box-shadow var(--ease),
+    background var(--ease);
 }
 
 .services-showcase .service-card__icon {
@@ -1629,16 +1723,16 @@ button.btn {
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
     0 8px 18px rgba(8, 36, 70, 0.05);
   transition:
-    transform 250ms ease,
-    border-color 250ms ease,
-    background 250ms ease,
-    box-shadow 250ms ease,
-    color 250ms ease;
+    transform var(--ease),
+    border-color var(--ease),
+    background var(--ease),
+    box-shadow var(--ease),
+    color var(--ease);
 }
 
 .services-showcase .service-card__link-icon {
   font-size: 1rem;
-  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform var(--ease);
 }
 
 .services-showcase__pagination {
@@ -1660,9 +1754,9 @@ button.btn {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
   cursor: pointer;
   transition:
-    width 250ms ease,
-    background 250ms ease,
-    transform 250ms ease;
+    width var(--ease),
+    background var(--ease),
+    transform var(--ease);
 }
 
 .services-showcase__pagination-dot.is-active {
@@ -2233,7 +2327,7 @@ button.btn {
     calc(var(--service-hero-pan-y) * -0.14),
     0
   );
-  transition: transform 220ms ease-out;
+  transition: transform var(--ease-slow);
   will-change: transform;
 }
 
@@ -2958,5 +3052,15 @@ button.btn {
     animation: none !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .page-transition-overlay {
+    display: none !important;
+  }
+
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
   }
 }

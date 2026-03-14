@@ -483,14 +483,14 @@
 
   const applyScrollRevealMap = () => {
     const revealGroups = [
-      { selector: ".hero-copy", animation: "fade-right", delayStep: 0 },
-      { selector: ".hero-form-wrap, .form-card", animation: "fade-left", delayStep: 0 },
-      { selector: ".hero-feature-layout", animation: "zoom-in", delayStep: 0 },
+      { selector: ".hero-copy", animation: "fade-up", delayStep: 0 },
+      { selector: ".hero-form-wrap, .form-card", animation: "fade-up", delayStep: 0 },
+      { selector: ".hero-feature-layout", animation: "fade-up", delayStep: 0 },
       { selector: ".section-header", animation: "fade-up", delayStep: 70 },
-      { selector: ".content-grid > article", animation: "fade-right", delayStep: 0 },
-      { selector: ".content-grid > aside", animation: "fade-left", delayStep: 80 },
-      { selector: ".split-layout > article", animation: "fade-right", delayStep: 0 },
-      { selector: ".split-layout > aside", animation: "fade-left", delayStep: 80 },
+      { selector: ".content-grid > article", animation: "fade-up", delayStep: 0 },
+      { selector: ".content-grid > aside", animation: "fade-up", delayStep: 80 },
+      { selector: ".split-layout > article", animation: "fade-up", delayStep: 0 },
+      { selector: ".split-layout > aside", animation: "fade-up", delayStep: 80 },
       { selector: ".trust-bar", animation: "fade-up", delayStep: 0 },
       { selector: ".service-card", animation: "fade-up", delayStep: 75 },
       { selector: ".step-card", animation: "fade-up", delayStep: 85 },
@@ -500,11 +500,11 @@
       { selector: ".info-card", animation: "fade-up", delayStep: 75 },
       { selector: ".related-card", animation: "fade-up", delayStep: 75 },
       { selector: ".contact-info-card", animation: "fade-up", delayStep: 85 },
-      { selector: ".callout", animation: "fade-left", delayStep: 90 },
-      { selector: ".map-placeholder", animation: "zoom-in-up", delayStep: 0 },
-      { selector: ".about-story article", animation: "fade-right", delayStep: 0 },
-      { selector: ".about-story figure", animation: "fade-left", delayStep: 120 },
-      { selector: ".cta-band", animation: "zoom-in-up", delayStep: 0 },
+      { selector: ".callout", animation: "fade-up", delayStep: 90 },
+      { selector: ".map-placeholder", animation: "fade-up", delayStep: 0 },
+      { selector: ".about-story article", animation: "fade-up", delayStep: 0 },
+      { selector: ".about-story figure", animation: "fade-up", delayStep: 120 },
+      { selector: ".cta-band", animation: "fade-up", delayStep: 0 },
       { selector: ".page-hero .container", animation: "fade-up", delayStep: 0 },
       { selector: ".service-hero .container", animation: "fade-up", delayStep: 0 },
       { selector: ".footer-top > section", animation: "fade-up", delayStep: 80 },
@@ -515,8 +515,8 @@
         if (element.dataset.aos) return;
 
         element.dataset.aos = animation;
-        element.dataset.aosDuration = "760";
-        element.dataset.aosEasing = "ease-out-cubic";
+        element.dataset.aosDuration = "1240";
+        element.dataset.aosEasing = "cubic-bezier(0.16, 1, 0.3, 1)";
 
         if (delayStep) {
           element.dataset.aosDelay = String(index * delayStep);
@@ -552,9 +552,9 @@
 
         window.AOS.init({
           once: true,
-          offset: 48,
-          duration: 760,
-          easing: "ease-out-cubic",
+          offset: 32,
+          duration: 1240,
+          easing: "cubic-bezier(0.16, 1, 0.3, 1)",
           mirror: false,
         });
       })
@@ -1063,11 +1063,90 @@
     syncFormState();
   };
 
+  const initializePageTransitions = () => {
+    const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const supportsNativeViewTransitions =
+      typeof document.startViewTransition === "function";
+
+    if (reduceMotionQuery.matches) return;
+
+    document.body.classList.add("page-transition-ready");
+
+    if (supportsNativeViewTransitions) return;
+
+    const overlay = document.createElement("div");
+    overlay.className = "page-transition-overlay";
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.append(overlay);
+
+    let navigationInProgress = false;
+
+    const shouldHandleLink = (link, event) => {
+      if (!link || navigationInProgress || event.defaultPrevented) return false;
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return false;
+      }
+      if (link.target && link.target !== "_self") return false;
+      if (link.hasAttribute("download") || link.hasAttribute("data-no-page-transition")) {
+        return false;
+      }
+
+      const rawHref = link.getAttribute("href");
+      if (!rawHref) return false;
+      if (
+        rawHref.startsWith("#") ||
+        rawHref.startsWith("mailto:") ||
+        rawHref.startsWith("tel:") ||
+        rawHref.startsWith("javascript:")
+      ) {
+        return false;
+      }
+
+      const url = new URL(link.href, window.location.href);
+      const sameDocument =
+        url.origin === window.location.origin &&
+        url.pathname === window.location.pathname &&
+        url.search === window.location.search;
+
+      if (url.origin !== window.location.origin) return false;
+      if (sameDocument && url.hash) return false;
+      if (
+        sameDocument &&
+        url.hash === window.location.hash
+      ) {
+        return false;
+      }
+
+      return true;
+    };
+
+    document.addEventListener("click", (event) => {
+      if (!(event.target instanceof Element)) return;
+
+      const link = event.target.closest("a[href]");
+      if (!shouldHandleLink(link, event)) return;
+
+      event.preventDefault();
+      navigationInProgress = true;
+      document.body.classList.add("page-transition-leaving");
+
+      window.setTimeout(() => {
+        window.location.assign(link.href);
+      }, 280);
+    });
+
+    window.addEventListener("pageshow", () => {
+      navigationInProgress = false;
+      document.body.classList.remove("page-transition-leaving");
+    });
+  };
+
   enhanceInterfaceWithIcons();
   initializeHeaderSearch();
   initializeHeroSearchTrigger();
   initializeFloatingSearchTrigger();
   initializeResponsiveHeroForm();
+  initializePageTransitions();
   initializePrivacyConsent();
   initializeServiceHeroMotion();
   addFloatingAccents();
